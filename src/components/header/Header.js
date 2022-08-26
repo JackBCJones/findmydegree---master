@@ -1,5 +1,6 @@
 import React from 'react';
 import './header.css';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 
@@ -30,12 +31,12 @@ const Header = () => {
           click below or scroll down to get started
          </h4>
          <div className='btn-container'>
-            <a href='/universities'>
+            <Link to='/universities'>
               <span className='btn'>Universities</span>
-            </a>
-          <a href="/courses">
+            </Link>
+          <Link to="/courses">
             <span className='btn'>Courses</span>
-          </a>
+          </Link>
           
           
             

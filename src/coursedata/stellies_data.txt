@@ -1,0 +1,109 @@
+// AgriSciences:
+
+// Agricultural Economics and Management
+// BAgric in Agricultural Production and Management
+// BScAgric in Animal Science
+// BSc in Conservation Ecology
+// BSc in Food Science
+// BSc in Forestry (Forestry and Wood Science)
+// BSc in Viticulture and Oenology
+// BScAgric in Plant and Soil Science
+// Extended Degree Programmes
+// Bachelor of Data Science
+
+// Arts and Social Sciences:
+
+// BA in Humanities
+// BA in Language and Culture
+// BA in Development and Environment
+// BA in Drama and Theatre Studies
+// BA in Human Resource Management
+// BA in International Studies
+// BA in Law
+// Bachelor of Music (BMus)
+// BA in Music
+// Diploma in Practical Music
+// Advanced Diploma in Practical Music
+// Higher Certificate in Music
+// BA in Political, Philosophical and Economic Studies (PPE)
+// Programmes with Psychology
+// Bachelor of Social Work
+// BA in Sport Science
+// BA in Visual Arts
+
+// Economic and Management Science:
+
+// Bachelor of Data Science
+// BCom (Management Sciences)
+// BCom (Economic Sciences)
+// BCom (Mathematical Sciences)
+// BCom (International Business)
+// BCom (Management Sciences) (Extended Degree Programme)
+// Diploma in Sustainable Development
+// Bachelor of Data Science
+// BAcc
+// BCom (Actuarial Sciences)
+// BCom (Financial Accounting)
+// BCom (Management Accounting)
+// BCom (Industrial Psychology)
+// BAccLLB
+// BCom (Law)
+
+// Education:
+
+// BEd (Foundation Phase Education)
+// BEd (Intermediate Phase Education)
+// Postgraduate Certificate in Education
+
+// Engineering:
+
+// BEng (Civil)
+// BEng (Chemical)
+// BEng (Electrical and Electronic)
+// BEng (Electrical and Electronic) with focus Data Engineering
+// BEng (Industrial)
+// BEng (Mechanical)
+// BEng (Mechatronic)
+
+// Law:
+
+// BA (Law)
+// BCom (Law)
+// LLB (four-year)
+// BAccLLB
+// LLB (three-year)
+
+// Medicine and Health Sciences:
+
+// BSc in Dietetics
+// BSc in Physiotherapy
+// Bachelor of Speech-Language and Hearing Therapy
+// Bachelor of Occupational Therapy
+// MBChB
+// Bachelor of Nursing and Midwifery
+
+// Miliatry Science:
+
+// BMil in Human and Organisation Development
+// BMil in Organisation and Resource Management
+// BMil in Technology
+// BMil in Technology and Defence Management
+// BMil in Security and Africa Studies
+
+// Science:
+
+// BSc in Biodiversity and Ecology
+// BSc in Human Life Sciences
+// BSc in Molecular Biology and Biotechnology
+// BSc in Sport Science
+// BSc in GeoInformatics
+// BSc in Chemistry
+// BSc in Earth Sciences
+// BSc in Physics
+// BSc in Mathematical Sciences
+// BSc in Computer Science
+
+// Theology:
+
+// BTh (Bachelor of Theology)
+// BDiv (Bachelor of Divinity)

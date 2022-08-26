@@ -304,7 +304,9 @@ Variables
   color: var(--clr-primary-4);
 }
 
-.uni:hover {
+.uni:hover,
+.unipage-img:hover
+ {
   cursor: pointer;
   padding: 0;
   background: var(--clr-grey-9);
