@@ -1,6 +1,6 @@
 import React from 'react';
 import './universities.css';
-import { unis } from '../../unidata';
+import unis from '../../unidata.json';
 import { Link } from 'react-router-dom';
 
 const Universities = () => {

@@ -1,5 +1,5 @@
 import {Link, useParams } from 'react-router-dom';
-import { unis } from '../../unidata';
+import unis  from '../../unidata.json';
 import './uni.css'
 
 
@@ -32,12 +32,11 @@ const Uni = () => {
       </div>
         <div className='courses-container'>
           {courses.map((course) => {
-            const {year, title, link, department, code} = course;
+            const { title, url, code, requirements} = course;
             return (
-              <a href={link} target='_blank' key={code} className='course'>
+              <a href={url} target='_blank' key={code} className='course'>
                 <h4>{title}</h4>
-                <p>{department}</p>
-                <p>{year}</p>
+                <p>{requirements}</p>
                 <p>click here to learn more</p>
               </a>
             )
