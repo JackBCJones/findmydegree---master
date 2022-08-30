@@ -34,7 +34,7 @@ const Uni = () => {
           {courses.map((course) => {
             const { title, url, code, requirements} = course;
             return (
-              <a href={url} target='_blank' key={code} className='course'>
+              <a href={url} target='_blank' rel="noreferrer" key={code} className='course'>
                 <h4>{title}</h4>
                 <p>{requirements}</p>
                 <p>click here to learn more</p>
