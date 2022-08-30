@@ -308,7 +308,6 @@ Variables
 .unipage-img:hover
  {
   cursor: pointer;
-  padding: 0;
   background: var(--clr-grey-9);
   box-shadow: var(--dark-shadow);
 }

@@ -24,20 +24,44 @@ const Uni = () => {
             <Link to='/'>
               <span className='btn'>Home</span>
             </Link>
+            <br/>
             <Link to='/universities'>
             <span className='btn'>Universities</span>
             </Link>
+            <br/>
+            <h4>how to calculate your APS</h4>
+            <p>APS is calculated by taking 6 of your best subjects (excluding Life Orientation). <br/>
+           The percentage of each subject determins your points. The total number of <br/>
+          points is your APS. 
+          The point system works as follows:
+          </p>
+          <ul>
+            <li>80% - 100% = 7 Points</li>
+            <li>70% - 79% = 6 Points</li>
+            <li>60% - 69% = 5 Points</li>
+            <li>50% - 59% = 4 Points</li>
+            <li>40% - 49% = 3 Points</li>
+            <li>30% - 39% = 2 Points</li>
+            <li>0% - 29% = 1 Point</li>
+          </ul>
+          <p>The Minimum APS for a Bachelor's Degree is 21</p>
           </div>
         </div>
       </div>
         <div className='courses-container'>
           {courses.map((course) => {
-            const { title, url, code, requirements} = course;
+            const { title, url, code, requirements, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
             return (
               <a href={url} target='_blank' rel="noreferrer" key={code} className='course'>
                 <h4>{title}</h4>
                 <p>{requirements}</p>
-                <p>click here to learn more</p>
+                <p>
+                  {sub1} {grade1} <br/>
+                  {sub2} {grade2} <br/>
+                  {sub3} {grade3} <br/>
+                  {sub4} {grade4} 
+                  </p>
+                <p>click to learn more</p>
               </a>
             )
           })}

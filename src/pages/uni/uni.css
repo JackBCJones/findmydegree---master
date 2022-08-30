@@ -63,7 +63,7 @@
 .course:hover {
     cursor: pointer;
   padding: 1rem;
-  background: var(--clr-grey-9);
+  /* background: var(--clr-grey-9); */
   box-shadow: var(--dark-shadow);
 }
 
@@ -88,6 +88,7 @@
 .unipage-img {
     justify-content: center;
     box-sizing: border-box;
+    /* display: flex; */
     border-radius: 0.25rem;
     box-shadow: var(--light-shadow);
     align-items: right;
@@ -96,18 +97,28 @@
   }
 
   .unipage-img img {
-    height: 250px;
-    width: 500px;
+    height: auto;
+    width: 50rem;
   }
 
   .unipage-footer{
    display: flex;
+   flex-direction: column;
    justify-content: space-around;
    align-items: center;
    padding: 10px;
-   margin: 20px;
+   margin: 2rem;
 
   }
+  .unipage-footer span {
+    line-height: 50px;
+  }
+
+  .unipage-footer p, ul {
+    line-height: 1.5rem;
+    color: var(--clr-primary-2);
+  }
+
 
   
 
@@ -119,9 +130,10 @@
       grid-row-gap: 100px;
     }
     .unipage-img {
-        height: 100px;
-        width: 200px;
+      display: flex;
+        flex-wrap: wrap;
     }
+
   }
 
   
