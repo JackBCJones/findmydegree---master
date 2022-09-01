@@ -4,6 +4,7 @@ import './uni.css'
 
 
 
+
 const Uni = () => {
 
     const { uniId } = useParams();
@@ -50,9 +51,9 @@ const Uni = () => {
       </div>
         <div className='courses-container'>
           {courses.map((course) => {
-            const { title, url, code, requirements, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
+            const { title, url, requirements, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
             return (
-              <a href={url} target='_blank' rel="noreferrer" key={code} className='course'>
+              <a href={url} target='_blank' rel="noreferrer" key={url} className='course'>
                 <h4>{title}</h4>
                 <p>{requirements}</p>
                 <p>
