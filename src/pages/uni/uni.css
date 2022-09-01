@@ -70,7 +70,7 @@
 
 .unipage-header {
     display: flex;
-    margin: 2px;
+    box-shadow: var(--light-shadow);
     background-color: var(--clr-white);
     flex-wrap: wrap;
     padding: 10px;
@@ -118,7 +118,22 @@
     line-height: 1.5rem;
     color: var(--clr-primary-2);
   }
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--clr-white);
+}
 
+.search-container input{
+  margin: 20px;
+  width: 300px;
+  height: 40px;
+  border: 1px solid var(--clr-primary-4);
+  box-shadow: var(--light-shadow);
+  font-size: 1rem;
+}
 
   
 

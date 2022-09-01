@@ -18,7 +18,6 @@ function App() {
           <Route path='/universities' element={<Universities />}/>
           <Route path='/:uniId' element={<Uni />}/>
           <Route path='*' element={<Error />}/>
-
         </Route>
       </Routes>
     </BrowserRouter>

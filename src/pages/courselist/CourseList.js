@@ -3,7 +3,9 @@ import Courses from '../../components/courses/Courses'
 
 const CourseList = () => {
   return (
-    <Courses />
+    <section>
+      <Courses />
+    </section>
   )
 }
 

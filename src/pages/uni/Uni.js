@@ -1,17 +1,17 @@
 import {Link, useParams } from 'react-router-dom';
 import unis  from '../../unidata.json';
-import './uni.css'
-
-
-
+import './uni.css';
+import {useState} from 'react';
 
 const Uni = () => {
 
-    const { uniId } = useParams();
+  const [searchTerm, setSearchTerm] = useState('ba')
 
-    const uni = unis.find((uni)=> uni.url === uniId);
+  const { uniId } = useParams();
+
+  const uni = unis.find((uni)=> uni.url === uniId);
     
-    const {title, img, courses} = uni;
+  const {title, img, courses} = uni;
 
 
   return (
@@ -49,8 +49,19 @@ const Uni = () => {
           </div>
         </div>
       </div>
+      <div className='search-container'>
+        <input type="text" placeholder="  Search..." onChange={event => {setSearchTerm(event.target.value)}}></input>
+      </div>
         <div className='courses-container'>
-          {courses.map((course) => {
+          {courses.filter((val) => {
+            if (searchTerm === '') {
+              return val
+            } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+              return val
+            } else {
+              return null
+            }
+          }).map((course) => {
             const { title, url, requirements, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
             return (
               <a href={url} target='_blank' rel="noreferrer" key={url} className='course'>
