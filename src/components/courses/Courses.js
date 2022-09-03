@@ -27,6 +27,7 @@ export const Courses = () => {
             return (
               <a href={url} target='_blank' rel="noreferrer" key={url} className='course'>
                 <h4>{title}</h4>
+                <p>{uni.url}</p>
                 <p>{requirements}</p>
                 <p>
                   {sub1} {grade1} <br/>

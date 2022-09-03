@@ -58,15 +58,16 @@ const Uni = () => {
               return val
             } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())) {
               return val
-            } else {
+            }
+             else {
               return null
             }
           }).map((course) => {
-            const { title, url, requirements, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
+            const { title, title2, url, requirements, req, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
             return (
               <a href={url} target='_blank' rel="noreferrer" key={url} className='course'>
-                <h4>{title}</h4>
-                <p>{requirements}</p>
+                <h4>{title} {title2}</h4>
+                <p>{requirements}{req}</p>
                 <p>
                   {sub1} {grade1} <br/>
                   {sub2} {grade2} <br/>
