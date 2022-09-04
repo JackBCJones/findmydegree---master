@@ -2,16 +2,17 @@ import {Link, useParams } from 'react-router-dom';
 import unis  from '../../unidata.json';
 import './uni.css';
 import {useState} from 'react';
+import { A, Title, Text } from '../../components/courses/CourseStyles';
 
 const Uni = () => {
 
-  const [searchTerm, setSearchTerm] = useState('ba')
+  const [searchTerm, setSearchTerm] = useState('')
 
   const { uniId } = useParams();
 
   const uni = unis.find((uni)=> uni.url === uniId);
     
-  const {title, img, courses} = uni;
+  const {title, img, courses, color, text} = uni;
 
 
   return (
@@ -65,17 +66,17 @@ const Uni = () => {
           }).map((course) => {
             const { title, title2, url, requirements, req, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
             return (
-              <a href={url} target='_blank' rel="noreferrer" key={url} className='course'>
-                <h4>{title} {title2}</h4>
-                <p>{requirements}{req}</p>
-                <p>
+              <A color={color} href={url} target='_blank' rel="noreferrer" key={url} className='course'>
+                <Title text={text}>{title} {title2}</Title>
+                <Text text={text}>{requirements}{req}</Text>
+                <Text text={text}>
                   {sub1} {grade1} <br/>
                   {sub2} {grade2} <br/>
                   {sub3} {grade3} <br/>
                   {sub4} {grade4} 
-                  </p>
-                <p>click to learn more</p>
-              </a>
+                  </Text>
+                <Text text={text}>click to learn more</Text>
+              </A>
             )
           })}
         </div>
