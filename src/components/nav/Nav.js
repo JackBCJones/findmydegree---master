@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import logo from '../../images/logodark.png';
 import { links, socials } from './navdata'
+import './Nav.css';
 
 const Nav = () => {
   const [showLinks, setShowLinks] = useState(false);

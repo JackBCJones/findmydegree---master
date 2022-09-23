@@ -3,6 +3,7 @@ import unis  from '../../unidata.json';
 import './uni.css';
 import {useState} from 'react';
 import { A, Title, Text } from '../../components/courses/CourseStyles';
+import { motion } from 'framer-motion';
 
 const Uni = () => {
 
@@ -18,8 +19,13 @@ const Uni = () => {
   return (
     <section>
       <div className='unipage-header'>
-        <h2 className='title'>{title}</h2>
-        <h4 className='title'>Undergraduate Degrees</h4>
+        <motion.div
+        whileInView={{x: [-100, 0], opacity: [0, 1]}}
+        transition={{duration: 1}}
+        >
+          <h2 className='title'>{title}</h2>
+          <h4 className='title'>Undergraduate Degrees</h4>
+        </motion.div>
         <div className='unipage-img'>
           <img src={img} alt={title} />
           <div className='unipage-footer'>
@@ -75,7 +81,7 @@ const Uni = () => {
                   {sub3} {grade3} <br/>
                   {sub4} {grade4} 
                   </Text>
-                <Text text={text}>click to learn more</Text>
+                <Text id='learnMore' text={text}>click to learn more</Text>
               </A>
             )
           })}

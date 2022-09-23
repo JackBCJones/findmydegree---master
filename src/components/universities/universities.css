@@ -2,7 +2,7 @@
 .uni-container {
     display: grid;
     background-color: var(--clr-white);
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     justify-content: space-evenly;
 
 
@@ -19,11 +19,16 @@
 
 }
 
-
-
 .uni-img {
     height: 200px;
     width: 400px;
+}
+
+.uni:hover
+ {
+  cursor: pointer;
+  background: var(--clr-grey-9);
+  box-shadow: var(--dark-shadow);
 }
 
 .uni-footer {
@@ -35,6 +40,10 @@
     font-weight: 300;
 
 }
+
+.uni-footer p {
+    color: var(--clr-primary-4);
+  }
 
 
 

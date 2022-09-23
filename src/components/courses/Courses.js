@@ -9,7 +9,7 @@ export const Courses = () => {
     return (
       <section>
         <div className='search-container'>
-          <input type="text" placeholder=" Search..." onChange={event => {setSearchTerm(event.target.value)}}></input>
+          <input type="text" placeholder="There are lots more, Search Here!" onChange={event => {setSearchTerm(event.target.value)}}></input>
         </div>
       {unis.map((uni) => {
         const {courses, color, text} = uni;
