@@ -9,13 +9,13 @@ const Universities = () => {
   return (
       <section className='uni-container' >
         {unis.map((uni) => {
-          const {id, title, url, img} = uni;
+          const {id, name, nick, img} = uni;
           return (
-            <Link to={`/${url}`} key={id}>
+            <Link to={`/${nick}`} key={id}>
             <div className='uni'>
-              <img src={img} alt={title} className='uni-img'/>
+              <img src={img} alt={name} className='uni-img'/>
               <div className='uni-footer'>
-                <h4>{title}</h4>
+                <h4>{name}</h4>
                 <p>View Courses</p>
               </div>
             </div>

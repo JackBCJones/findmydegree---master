@@ -1,10 +1,12 @@
 import React from 'react'
-import Courses from '../../components/courses/Courses'
+import CourseCard from '../../components/courses/CourseCard'
+import "./CourseList.css";
 
 const CourseList = () => {
   return (
     <section>
-      <Courses />
+      {/* <CourseCard name={"University of Pretoria"}/> */}
+      <CourseCard name={"University of The Witwatersrand"}/>
     </section>
   )
 }

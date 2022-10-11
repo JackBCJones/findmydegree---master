@@ -2,18 +2,18 @@
 [
     {
         "id": 1,
-        "title": "University of Cape Town",
+        "name": "University of Cape Town",
         "img": "https://cisp.cachefly.net/assets/articles/images/resized/0000980358_resized_uctuppercampuslandscapeview1022.jpg",
-        "url": "UCT",
+        "nick": "UCT",
         "color": "green",
         "text": "hsl(210, 22%, 49%)",
         "courses": []
     },
     {
         "id": 2,
-        "title": "University of The Witwatersrand",
+        "name": "University of The Witwatersrand",
         "img": "https://www.wits.ac.za/media/wits-university/study/images/Wits-GreatHall-600x300-credit-Shivan-Parusnath.png",
-        "url": "WITS",
+        "nick": "WITS",
         "color": "#d0be9b",
         "text": "hsl(210, 22%, 49%)",
         "courses": [
@@ -105,9 +105,9 @@
     },
     {
         "id": 3,
-        "title": "University of Pretoria",
+        "name": "University of Pretoria",
         "img": "https://www.thesouthafrican.com/wp-content/uploads/2015/09/Tuks.jpg",
-        "url": "TUKS",
+        "nick": "TUKS",
         "color": "#860c20",
         "text": "#fff",
         "courses": [
@@ -235,9 +235,9 @@
     },
     {
         "id": 4,
-        "title": "University of Stellenbosche",
+        "name": "University of Stellenbosche",
         "img": "https://cdn.24.co.za/files/Cms/General/d/11283/f3f93860f9904f5fa21967a085240dc4.jpg",
-        "url": "STELLIES",
+        "nick": "STELLIES",
         "color": "#62243b",
         "text": "#fff",
         "courses": [
@@ -335,27 +335,27 @@
     },
     {
         "id": 5,
-        "title": "University of South Africa",
+        "name": "University of South Africa",
         "img": "https://www.unisa.ac.za/static/corporate_web/Content/UHM/themes/images/17_Unisa_Architecture.jpg",
-        "url": "UNISA",
+        "nick": "UNISA",
         "color": "red",
         "text": "hsl(210, 22%, 49%)",
         "courses": []
     },
     {
         "id": 6,
-        "title": "Rhodes University",
+        "name": "Rhodes University",
         "img": "https://cimages1.touristlink.com/data/cache/RH/OD/ES/OL/DC/A/rhodes-university-_oldcampus_400_300.jpg",
-        "url": "RHODES",
+        "nick": "RHODES",
         "color": "purple",
         "text": "hsl(210, 22%, 49%)",
         "courses": []
     },
     {
         "id": 7,
-        "title": "University of Johannesburg",
+        "name": "University of Johannesburg",
         "img": "https://www.timeshighereducation.com/sites/default/files/institution/header_image/profile_uj_-_header_v20170710.jpg",
-        "url": "UJ",
+        "nick": "UJ",
         "color": "#f36424",
         "text": "#fff",
         "courses": [

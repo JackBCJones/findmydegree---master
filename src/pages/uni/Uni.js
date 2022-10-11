@@ -1,33 +1,49 @@
 import {Link, useParams } from 'react-router-dom';
 import unis  from '../../unidata.json';
 import './uni.css';
-import {useState} from 'react';
-import { A, Title, Text } from '../../components/courses/CourseStyles';
+import React, {useState, useContext} from 'react';
 import { motion } from 'framer-motion';
+import { useStateValue } from '../../context/GlobalState';
+import CourseCard from '../../components/courses/CourseCard';
+
+
 
 const Uni = () => {
 
   const [searchTerm, setSearchTerm] = useState('')
 
+
   const { uniId } = useParams();
 
-  const uni = unis.find((uni)=> uni.url === uniId);
+  const uni = unis.find((uni)=> uni.nick === uniId);
     
-  const {title, img, courses, color, text} = uni;
+  const {name, img, courses, color, text} = uni;
+
+  // const [{ favourites }, dispatch] = useStateValue();
+
+  // const addToFavourites = () => {
+  //   dispatch({
+  //     type: "ADD_TO_FAVOURITES",
+  //     item: {
+  //       title: title,
+  //       url: url,
+  //     }
+  //   })
+  // }
 
 
   return (
-    <section>
+    <div className='container'>
       <div className='unipage-header'>
         <motion.div
         whileInView={{x: [-100, 0], opacity: [0, 1]}}
         transition={{duration: 1}}
         >
-          <h2 className='title'>{title}</h2>
+          <h2 className='title'>{name}</h2>
           <h4 className='title'>Undergraduate Degrees</h4>
         </motion.div>
         <div className='unipage-img'>
-          <img src={img} alt={title} />
+          <img src={img} alt={name} />
           <div className='unipage-footer'>
             <Link to='/'>
               <span className='btn'>Home</span>
@@ -56,37 +72,11 @@ const Uni = () => {
           </div>
         </div>
       </div>
-      <div className='search-container'>
-        <input type="text" placeholder="  Search..." onChange={event => {setSearchTerm(event.target.value)}}></input>
-      </div>
-        <div className='courses-container'>
-          {courses.filter((val) => {
-            if (searchTerm === '') {
-              return val
-            } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-              return val
-            }
-             else {
-              return null
-            }
-          }).map((course) => {
-            const { title, title2, url, requirements, req, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
-            return (
-              <A color={color} href={url} target='_blank' rel="noreferrer" key={url} className='course'>
-                <Title text={text}>{title} {title2}</Title>
-                <Text text={text}>{requirements}{req}</Text>
-                <Text text={text}>
-                  {sub1} {grade1} <br/>
-                  {sub2} {grade2} <br/>
-                  {sub3} {grade3} <br/>
-                  {sub4} {grade4} 
-                  </Text>
-                <Text id='learnMore' text={text}>click to learn more</Text>
-              </A>
-            )
-          })}
-        </div>
-    </section>
+      <section>
+        <CourseCard name={name}/>
+      </section>
+    </div>
+    
   );
 };
 
