@@ -1,15 +1,17 @@
-import React, {useState, useContext} from 'react'
+import React from 'react'
 import unis from '../../unidata.json';
 import { A, Title, Text } from '../../components/courses/CourseStyles';
 import "./CourseCard.css"
+import { useStateValue } from '../../context/GlobalState'
 
 
 
 const CourseCard = ({ name }) => {
-
+  const [{Favourites}, dispatch] = useStateValue();
   const uni = unis.filter(uni => uni.name === name)
+  const {color, text, nick } = uni[0]
 
-    const {color, text } = uni[0]
+
 
     const courses = uni[0].courses
     // console.log(courses)
@@ -18,6 +20,20 @@ const CourseCard = ({ name }) => {
     <>
     {courses.map((course) => {
       const { title, title2, url, requirements, req, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
+
+      const addToFavourites = () => {
+        dispatch({
+          type: "ADD_TO_FAVOURITES",
+          item: {
+            title: title,
+            title2: title2,
+            url: url,
+            nick: nick,
+            text: text,
+            color: color,
+          }
+        })
+      }
         return (
           <div className='courses-container'>
             <A color={color} key={url} className='course'>
@@ -34,7 +50,7 @@ const CourseCard = ({ name }) => {
                   <Text text={text}>click here to learn more</Text>
                 </a>
                 <div className='btn-container'>
-                  <button className='btn'>Add to Favourites</button>
+                  <button className='btn' onClick={addToFavourites}>Add to Favourites</button>
                 </div>
             </A>
           </div>

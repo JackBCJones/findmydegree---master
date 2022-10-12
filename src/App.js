@@ -7,23 +7,23 @@ import CourseList from './pages/courselist/CourseList';
 import Universities from './components/universities/Universities';
 import React from 'react';
 import Error from './pages/Error';
+import Favourites from './pages/favourites/Favourites';
 import {GlobalProvider} from './context/GlobalState';
 
 function App() {
   return (
-    // <AppProvider>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SharedLayout />} >
             <Route index element={<Home />} />
             <Route path='/courses' element={<CourseList/>}/>
+            <Route path='/favourites' element={<Favourites/>}/>
             <Route path='/universities' element={<Universities />}/>
             <Route path='/:uniId' element={<Uni />}/>
             <Route path='*' element={<Error />}/>
           </Route>
         </Routes>
       </BrowserRouter>
-    // </AppProvider>
   );
 }
 

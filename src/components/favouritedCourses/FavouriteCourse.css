@@ -1,11 +1,11 @@
-.courses-container {
+.favourite__card__container {
     display: grid;
-    grid-template-columns: 1fr auto;
-    width: 50%;
+    grid-template-columns: 1fr;
+    width: 33%;
     padding: 1rem;
 
 }
-.course {
+.favourite__course {
     height: auto;
     width: 100%;
     text-align: center;
@@ -18,7 +18,7 @@
     padding: 1rem;
 }
 
-.btn {
+.favourite__btn {
     border: none;
     background-color: var(--clr-primary-3);
     padding: 15px 32px;

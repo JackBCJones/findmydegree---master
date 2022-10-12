@@ -24,6 +24,11 @@ export const links = [
         url: '/international',
         text: 'International Students',
     },
+    {
+        id: 5, 
+        url: '/favourites',
+        text: 'Favourites',
+    },
 ];
 
 export const socials = [

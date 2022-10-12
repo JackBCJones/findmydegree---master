@@ -4,7 +4,7 @@ import "./CourseList.css";
 
 const CourseList = () => {
   return (
-    <section>
+    <section className='course__page__container'>
       {/* <CourseCard name={"University of Pretoria"}/> */}
       <CourseCard name={"University of The Witwatersrand"}/>
     </section>

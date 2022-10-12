@@ -1,4 +1,4 @@
-section {
+.course__page__container {
     margin-top: 0.05rem;
     display: flex;
     flex-wrap: wrap;
