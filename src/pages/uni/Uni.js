@@ -1,23 +1,22 @@
 import {Link, useParams } from 'react-router-dom';
 import unis  from '../../unidata.json';
 import './uni.css';
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import { motion } from 'framer-motion';
-import { useStateValue } from '../../context/GlobalState';
 import CourseCard from '../../components/courses/CourseCard';
 
 
 
 const Uni = () => {
 
-  const [searchTerm, setSearchTerm] = useState('')
+  // const [searchTerm, setSearchTerm] = useState('')
 
 
   const { uniId } = useParams();
 
   const uni = unis.find((uni)=> uni.nick === uniId);
     
-  const {name, img, courses, color, text} = uni;
+  const {name, img} = uni;
 
   // const [{ favourites }, dispatch] = useStateValue();
 
@@ -72,7 +71,7 @@ const Uni = () => {
           </div>
         </div>
       </div>
-      <section>
+      <section className='uni__course-container'>
         <CourseCard name={name}/>
       </section>
     </div>

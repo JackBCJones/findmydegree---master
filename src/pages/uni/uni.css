@@ -4,12 +4,22 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.uni__course-container {
+  margin-top: 0.05rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: var(--clr-grey-10);
+    margin-top: 5px;
 }
 
 .unipage-header {
     display: flex;
     box-shadow: var(--light-shadow);
-    background-color: var(--clr-white);
+    background-color: var(--clr-grey-11);
     flex-wrap: wrap;
     flex-flow: column;
 

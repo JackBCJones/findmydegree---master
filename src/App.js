@@ -8,7 +8,8 @@ import Universities from './components/universities/Universities';
 import React from 'react';
 import Error from './pages/Error';
 import Favourites from './pages/favourites/Favourites';
-import {GlobalProvider} from './context/GlobalState';
+import International from './pages/international/International';
+// import {GlobalProvider} from './context/GlobalState';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path='/courses' element={<CourseList/>}/>
             <Route path='/favourites' element={<Favourites/>}/>
             <Route path='/universities' element={<Universities />}/>
+            <Route path='/international' element={<International />}/>
             <Route path='/:uniId' element={<Uni />}/>
             <Route path='*' element={<Error />}/>
           </Route>

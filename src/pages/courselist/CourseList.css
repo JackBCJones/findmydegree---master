@@ -3,5 +3,50 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: var(--clr-white);
+    background-color: var(--clr-grey-10);
+    margin-top: 5px;
+}
+
+.filter__container {
+    background-color: var(--clr-grey-11);
+    box-shadow: var(--light-shadow);
+}
+
+.app__course-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.filter__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-primary-3);
+    margin-top: 5px;
+}
+
+.app__course-filter-item {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--clr-primary-4);
+    color: var(--clr-white);
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    margin: 0.5rem;
+}
+
+.app__course-filter-item:hover {
+    background-color: var(--clr-primary-6);
+    color: #fff;
+}
+.item-active {
+    background-color: var(--clr-primary-2);
+    color: #fff;
 }

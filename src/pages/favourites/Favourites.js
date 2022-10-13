@@ -4,16 +4,15 @@ import FavouriteCourse from '../../components/favouritedCourses/FavouriteCourse'
 import './Favourites.css'
 
 const Favourites = () => {
-    const [{ favourites }, dispatch] = useStateValue();
-    console.log(favourites)
+    const [{ favourites }] = useStateValue();
+
+
       return (
         <div className='page__container'>
         <div className='favourites__counter'>
           Total Favourites Saved: {favourites.length}
         </div>
           <section className='favourites__page__container'>
-            
-
             {favourites.map(item => (
               <FavouriteCourse 
               title={item.title}
