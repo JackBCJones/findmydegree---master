@@ -2,7 +2,7 @@
 .uni-container {
     display: grid;
     background-color: var(--clr-white);
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto;
     justify-content: space-evenly;
 
 
@@ -19,7 +19,7 @@
 
 }
 
-.uni-img {
+.uni img {
     height: 200px;
     width: 400px;
 }

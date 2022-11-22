@@ -6,6 +6,12 @@
     background-color: var(--clr-grey-10);
     margin-top: 5px;
 }
+.search-container {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
 
 .filter__container {
     background-color: var(--clr-grey-11);

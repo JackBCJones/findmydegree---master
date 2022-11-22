@@ -1,13 +1,13 @@
 import React from 'react'
 import { A, Title, Text } from '../../components/courses/CourseStyles';
-import { useStateValue } from '../../context/GlobalState';
+import { useGlobalContext } from '../../context/GlobalState';
 import './FavouriteCourse.css'
 
 
 
 const FavouriteCourse = ({ nick, url, title, title2, text, color }) => {
 
-    const [{ favourites }, dispatch] = useStateValue();
+    const [{ favourites }, dispatch] = useGlobalContext();
 
     const removeFromFavourites = () => {
         dispatch({

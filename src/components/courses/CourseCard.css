@@ -1,3 +1,21 @@
+.card__container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+
+}
+
+.search__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .courses-container {
     display: grid;
     grid-template-columns: 1fr auto;

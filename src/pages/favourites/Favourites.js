@@ -1,10 +1,10 @@
 import React from 'react'
-import { useStateValue } from '../../context/GlobalState'
+import { useGlobalContext } from '../../context/GlobalState'
 import FavouriteCourse from '../../components/favouritedCourses/FavouriteCourse';
 import './Favourites.css'
 
 const Favourites = () => {
-    const [{ favourites }] = useStateValue();
+    const [{ favourites }] = useGlobalContext();
 
 
       return (

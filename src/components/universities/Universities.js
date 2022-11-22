@@ -1,29 +1,30 @@
 import React from 'react';
 import './universities.css';
-import unis from '../../unidata.json';
-import { Link } from 'react-router-dom';
+import UniCard from './UniCard';
+import Loading from '/Users/jckbcjones/Documents/code_projects/findmydegree - master/src/components/loading/Loading';
+import { useGlobalContext } from '../../context/GlobalState';
 
 const Universities = () => {
 
+  const {unis, loading}  = useGlobalContext();
+
+  if(loading){
+    return <Loading />
+  }
+  if(unis.length < 1) {
+    return (
+    <h2>No courses matched your search criteria</h2>
+    )
+  }
 
   return (
-      <section className='uni-container' >
-        {unis.map((uni) => {
-          const {id, name, nick, img} = uni;
-          return (
-            <Link to={`/${nick}`} key={id}>
-            <div className='uni'>
-              <img src={img} alt={name} className='uni-img'/>
-              <div className='uni-footer'>
-                <h4>{name}</h4>
-                <p>View Courses</p>
-              </div>
-            </div>
-            </Link>
-            );
-        })}
+      <section className='uni-container'>
+          {unis.map((item) => {
+            return <UniCard key={item.uni_id} {...item}/>
+          })} 
       </section>
   )
 }
 
 export default Universities
+

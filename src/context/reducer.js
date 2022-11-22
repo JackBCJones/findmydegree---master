@@ -3,10 +3,8 @@ export const initialState = {
 };
 
 
-// export const getName = (favourites) => favourites?.reduce((item) => item.name, 0)
-
 export const reducer =  (state, action) => {
-    console.log(action);
+    // console.log(action);
     switch(action.type) {
         case "ADD_TO_FAVOURITES":
             return {

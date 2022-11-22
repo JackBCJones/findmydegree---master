@@ -1,22 +1,52 @@
 import {Link, useParams } from 'react-router-dom';
-import unis  from '../../unidata.json';
 import './uni.css';
-import React, {useState} from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import CourseCard from '../../components/courses/CourseCard';
+import Loading from '../../components/loading/Loading';
+
+const url = `http://localhost:8000/unis`
 
 
 
 const Uni = () => {
+    const {uni_id} = useParams();
+    const [loading, setLoading] = React.useState(false)
+    const [uni, setUni] = React.useState(null)
 
-  // const [searchTerm, setSearchTerm] = useState('')
+    React.useEffect(() => {
+        setLoading(true)
+        async function getUni(){
+            try {
+                const response = await fetch(`${url}/${uni_id}`);
+                const data = await response.json()
+                if (data) {
+                    setLoading(false)
+                    const {id: uni_id, name, img, nickname, color, text_color} = data
+                    const newUni = {uni_id, name, img, nickname, color, text_color} 
+                    setUni(newUni)
+                   
 
+                } else {
+                    setUni(null)
+                }
+                setLoading(false)
+            } catch (error) {
+                console.log(error)
+                setLoading(false)
+            }
+        }
+        getUni()
+    }, [uni_id])
+    if (loading) {
+        return <Loading />
+    } 
+    if (!uni) {
+        return <h2>no Uni to display</h2>
+    }
+    const {name, img, nickname, color, text_color} = uni;
+   
 
-  const { uniId } = useParams();
-
-  const uni = unis.find((uni)=> uni.nick === uniId);
-    
-  const {name, img} = uni;
 
   // const [{ favourites }, dispatch] = useStateValue();
 
@@ -72,7 +102,7 @@ const Uni = () => {
         </div>
       </div>
       <section className='uni__course-container'>
-        <CourseCard name={name}/>
+        {/* <CourseCard name={name}/> */}
       </section>
     </div>
     

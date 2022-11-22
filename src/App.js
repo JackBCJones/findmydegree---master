@@ -1,11 +1,15 @@
+import React from 'react';
 import './index.css';
-import Home from './pages/home/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// import components
 import SharedLayout from './components/sharedlayout/SharedLayout';
+import Universities from './components/universities/Universities';
+
+// import pages
+import Home from './pages/home/Home';
 import Uni from './pages/uni/Uni';
 import CourseList from './pages/courselist/CourseList';
-import Universities from './components/universities/Universities';
-import React from 'react';
 import Error from './pages/Error';
 import Favourites from './pages/favourites/Favourites';
 import International from './pages/international/International';
@@ -21,7 +25,7 @@ function App() {
             <Route path='/favourites' element={<Favourites/>}/>
             <Route path='/universities' element={<Universities />}/>
             <Route path='/international' element={<International />}/>
-            <Route path='/:uniId' element={<Uni />}/>
+            <Route path='/university/:uni_id' element={<Uni />}/>
             <Route path='*' element={<Error />}/>
           </Route>
         </Routes>

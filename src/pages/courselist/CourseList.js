@@ -1,76 +1,99 @@
 import React, {useState} from 'react'
 import CourseCard from '../../components/courses/CourseCard'
 import "./CourseList.css";
+import { useGlobalContext } from '../../context/GlobalState.js'
+import SeachForm from '../../components/SeachForm.js';
+
 
 const CourseList = () => {
-  const [activeFilter, setActiveFilter] = useState('ALL');
+
+  const {courses, loading}  = useGlobalContext();
+
+
+  return (
+      <section className='course-container'>
+        <div className='search-container'>
+          <SeachForm />
+        </div>
+        <div>
+          {courses.map((item) => {
+            return <CourseCard key={item.course_id} {...item}/>
+          })} 
+        </div>
+      </section>
+
+  )
+
+  
+}
+
   // const [nicks, setNicks] = useState([]);
   // const [filterCourse, setFilterCourse] = useState([]);
 
   
-  const handleWorkFilter = (item) => {
-    setActiveFilter(item)
+//   const handleWorkFilter = (item) => {
+//     setActiveFilter(item)
 
-    // if (item === 'ALL') {
-    //   setFilterCourse(nicks)
-    // } else {
-    //   setFilterCourse(nicks.filter((course) => course.uni.nick.includes(item)))
-    // }
-  }
+//     // if (item === 'ALL') {
+//     //   setFilterCourse(nicks)
+//     // } else {
+//     //   setFilterCourse(nicks.filter((course) => course.uni.nick.includes(item)))
+//     // }
+//   }
   
-  return (
-    <div className='filter__container'>
-      <h3 className='filter__header'>Filter: </h3>
-      <div className='app__course-filter'>
-          {['UCT', 'TUKS', 'UJ', 'WITS', 'STELLIES', 'UNISA', 'RHODES', 'ALL'].map((item, index) => (
-            <button 
-            key={index}
-            onClick={() => handleWorkFilter(item)}
-            className={`app__course-filter-item ${activeFilter === item? 'item-active' : '' }`}
-            >
-            {item}
-            </button>
-          ))}
-      </div>
-      <section className='course__page__container'>
-        {activeFilter === "ALL" ? 
-        <>
-          <CourseCard name={"University of The Witwatersrand"}/>
-          <CourseCard name={"University of Pretoria"} />
-        </> : <></>}
+//   return (
+//     <div className='filter__container'>
+//       <h3 className='filter__header'>Filter: </h3>
+//       <div className='app__course-filter'>
+//           {['UCT', 'TUKS', 'UJ', 'WITS', 'STELLIES', 'UNISA', 'RHODES', 'ALL'].map((item, index) => (
+//             <button 
+//             key={index}
+//             onClick={() => handleWorkFilter(item)}
+//             className={`app__course-filter-item ${activeFilter === item? 'item-active' : '' }`}
+//             >
+//             {item}
+//             </button>
+//           ))}
+//       </div>
+//       <section className='course__page__container'>
+//         {activeFilter === "ALL" ? 
+//         <>
+//           <CourseCard name={"University of The Witwatersrand"}/>
+//           <CourseCard name={"University of Pretoria"} />
+//         </> : <></>}
 
-        {activeFilter === "WITS" ? 
-        <>
-          <CourseCard name={"University of The Witwatersrand"}/>
-        </> : <></>}
-        {activeFilter === "TUKS" ? 
-        <>
-          <CourseCard name={"University of Pretoria"} />
-        </> : <></>}
-        {activeFilter === "UJ" ? 
-        <>
-          <CourseCard name={"University of Johannesburg"} />
-        </> : <></>}
-        {activeFilter === "STELLIES" ? 
-        <>
-          <CourseCard name={"University of Stellenbosche"} />
-        </> : <></>}
-        {activeFilter === "UCT" ? 
-        <>
-          <CourseCard name={"University of Cape Town"} />
-        </> : <></>}
-        {activeFilter === "UNISA" ? 
-        <>
-          <CourseCard name={"University of South Africa"} />
-        </> : <></>}
-        {activeFilter === "RHODES" ? 
-        <>
-          <CourseCard name={"Rhodes University"} />
-        </> : <></>}
+//         {activeFilter === "WITS" ? 
+//         <>
+//           <CourseCard name={"University of The Witwatersrand"}/>
+//         </> : <></>}
+//         {activeFilter === "TUKS" ? 
+//         <>
+//           <CourseCard name={"University of Pretoria"} />
+//         </> : <></>}
+//         {activeFilter === "UJ" ? 
+//         <>
+//           <CourseCard name={"University of Johannesburg"} />
+//         </> : <></>}
+//         {activeFilter === "STELLIES" ? 
+//         <>
+//           <CourseCard name={"University of Stellenbosche"} />
+//         </> : <></>}
+//         {activeFilter === "UCT" ? 
+//         <>
+//           <CourseCard name={"University of Cape Town"} />
+//         </> : <></>}
+//         {activeFilter === "UNISA" ? 
+//         <>
+//           <CourseCard name={"University of South Africa"} />
+//         </> : <></>}
+//         {activeFilter === "RHODES" ? 
+//         <>
+//           <CourseCard name={"Rhodes University"} />
+//         </> : <></>}
         
-      </section>
-    </div>
-  )
-}
+//       </section>
+//     </div>
+//   )
+// }
 
-export default CourseList
+export default CourseList;
