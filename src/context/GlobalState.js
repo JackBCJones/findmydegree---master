@@ -1,8 +1,10 @@
-import React, {createContext, useReducer, useContext, useState, useEffect} from 'react'
+import React, {createContext, useContext, useState, useEffect} from 'react'
 import { useCallback } from 'react';
+import { useParams } from 'react-router-dom';
 
 // preparing the dataLayer
 const url = 'http://localhost:8000'
+
 export const AppContext = createContext();
 
 // wrapping our app and providing dataLayer to all componets
@@ -11,12 +13,14 @@ export const AppProvider = ({ reducer, initialState, children }) => {
     const [searchTerm, setSearchTerm] = useState("A");
     const [courses, setCourses] = useState([]);
     const [unis, setUnis] = useState([]);
+    // const [uniKey, setUniKey] = useState('')
+
 
 
     const fetchUnis = async () => {
         setLoading(true)
         try {
-            const response = await fetch(`${url}/unis`)
+            const response = await fetch(`${url}/unis/`)
             const data = await response.json();
             const unis = data;
             if (unis) {
@@ -61,12 +65,14 @@ export const AppProvider = ({ reducer, initialState, children }) => {
             const courses = data;
             if (courses) {
                 const newCourses = courses.map((item)=>{
-                    const {title,requirements,id,link} = item;
+                    const {title,requirements,id,link, owner_id, owner} = item;
                     return {
                         title: title,
                         requirements: requirements,
                         course_id: id,
                         link: link,
+                        owner: owner_id,
+                        owner: owner
                     }
                 })
                 setCourses(newCourses)
@@ -83,6 +89,9 @@ export const AppProvider = ({ reducer, initialState, children }) => {
     useEffect(() => {
       fetchCourses()
     }, [searchTerm])
+
+
+     
     
 
 
@@ -92,7 +101,7 @@ export const AppProvider = ({ reducer, initialState, children }) => {
         loading, 
         courses,
         unis,
-        setSearchTerm
+        setSearchTerm,
         }}
         >
         {children}

@@ -11,11 +11,11 @@ const CourseList = () => {
 
 
   return (
-      <section className='course-container'>
+      <section >
         <div className='search-container'>
           <SeachForm />
         </div>
-        <div>
+        <div className='course-container'>
           {courses.map((item) => {
             return <CourseCard key={item.course_id} {...item}/>
           })} 

@@ -1,11 +1,11 @@
-// import { A, Title, Text } from '../../components/courses/CourseStyles';
+import { A, Title, Text } from '../../components/courses/CourseStyles';
 import "./CourseCard.css"
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
 
-const CourseCard = ({ title, requirements, link, course_id }) => {
+const CourseCard = ({ title, requirements, link, course_id, owner }) => {
 
 //   const [{Favourites}, dispatch] = useGlobalContext();
 //   const uni = unis.filter(uni => uni.name === name)
@@ -24,15 +24,21 @@ const CourseCard = ({ title, requirements, link, course_id }) => {
 //     // console.log(courses)
 
     return (
-      <article className='courses-container'>
-        <div className='course'>
-            <h4>{title}</h4>
-            <p>{requirements}</p>
-            <a target='_blank' href={link} rel="noreferrer" className="btn">
-              details
-            </a>
-        </div>
-    </article>
+      <div className='card__container'>
+            <div className='courses-container'>
+              <A color={owner.color} key={course_id} className='course'>
+                <Title text={owner.text_color}>{title}</Title>
+                <Text text={owner.text_color}>{owner.nickname}</Text>
+                <Text text={owner.text_color}>{requirements}</Text>
+                  <button target='_blank' href={link} rel="noreferrer" className='btn'>
+                    <Text text={owner.text_color}>details</Text>
+                  </button>
+                  <div className='btn-container'>
+                    {/* <button className='btn' onClick={addToFavourites}>Add to Favourites</button> */}
+                  </div>
+              </A>
+            </div>
+    </div> 
     )
     
 
@@ -59,7 +65,7 @@ export default CourseCard;
 //   }
 
 
-{/* <div className='card__container'>
+/* <div className='card__container'>
         return (
           <div>
             <div className='courses-container'>
@@ -77,7 +83,7 @@ export default CourseCard;
             </div>
           </div>
         )
-    </div> */}
+    </div> */
 
 // // const [searchTerm, setSearchTerm] = useState('ba')
 
