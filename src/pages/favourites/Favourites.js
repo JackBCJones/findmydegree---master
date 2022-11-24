@@ -16,11 +16,10 @@ const Favourites = () => {
             {favourites.map(item => (
               <FavouriteCourse 
               title={item.title}
-              title2={item.title2}
-              url={item.url}
-              nick={item.nick}
-              text={item.text}
-              color={item.color}
+              url={item.link}
+              // nick={item.nick}
+              // text={item.text}
+              // color={item.color}
               />
             ))}
           </section>

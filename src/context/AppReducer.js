@@ -3,7 +3,7 @@ export const initialState = {
 };
 
 
-export const reducer =  (state, action) => {
+export const AppReducer =  (state, action) => {
     // console.log(action);
     switch(action.type) {
         case "ADD_TO_FAVOURITES":
@@ -34,4 +34,4 @@ export const reducer =  (state, action) => {
     }
 };
 
-export default reducer;
+export default AppReducer;

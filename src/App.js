@@ -13,10 +13,11 @@ import CourseList from './pages/courselist/CourseList';
 import Error from './pages/Error';
 import Favourites from './pages/favourites/Favourites';
 import International from './pages/international/International';
-// import {GlobalProvider} from './context/GlobalState';
+import {AppProvider} from './context/GlobalState';
 
 function App() {
   return (
+    <AppProvider>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SharedLayout />} >
@@ -30,6 +31,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+    </AppProvider>
   );
 }
 

@@ -2,27 +2,14 @@ import { A, Title, Text } from '../../components/courses/CourseStyles';
 import "./CourseCard.css"
 import React from 'react'
 // import { Link } from 'react-router-dom'
+// import { AppContext } from '../../context/GlobalState';
 
 
 
 const CourseCard = ({ title, requirements, link, course_id, owner }) => {
+  // const { addCourseToFavourites } = useContext(AppContext)
 
-//   const [{Favourites}, dispatch] = useGlobalContext();
-//   const uni = unis.filter(uni => uni.name === name)
-//   const {color, text, nick } = uni[0]
-//   const [query, setQuery] = useState("");
-
-//   const search = (data) => {
-//     return data.filter((item) => item.title?.toLowerCase().includes(query) || item.title2?.toLowerCase().includes(query));
-//   }
-
-
-
-//     const courses = uni[0].courses
-
-//     let searchedCourse = search(courses);
-//     // console.log(courses)
-
+ 
     return (
       <div className='card__container'>
             <div className='courses-container'>
@@ -34,7 +21,7 @@ const CourseCard = ({ title, requirements, link, course_id, owner }) => {
                     <Text text={owner.text_color}>details</Text>
                   </button>
                   <div className='btn-container'>
-                    {/* <button className='btn' onClick={addToFavourites}>Add to Favourites</button> */}
+                    {/* <button className='btn' onClick={() => addCourseToFavourites(owner)}>Add to Favourites</button> */}
                   </div>
               </A>
             </div>
@@ -50,19 +37,7 @@ export default CourseCard;
 // {searchedCourse.map((course) => {
 //   const { title, title2, url, requirements, req, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
   
-//   const addToFavourites = () => {
-//     dispatch({
-//       type: "ADD_TO_FAVOURITES",
-//       item: {
-//         title: title,
-//         title2: title2,
-//         url: url,
-//         nick: nick,
-//         text: text,
-//         color: color,
-//       }
-//     })
-//   }
+
 
 
 /* <div className='card__container'>

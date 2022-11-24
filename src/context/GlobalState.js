@@ -1,19 +1,29 @@
-import React, {createContext, useContext, useState, useEffect} from 'react'
-import { useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import React, {createContext, useCallback, useContext, useState, useEffect} from 'react'
+// import { useCallback } from 'react';
+// import CourseCard from '../components/courses/CourseCard';
+// import AppReducer from './AppReducer';
+
+
 
 // preparing the dataLayer
+
+
 const url = 'http://localhost:8000'
+// const initialState = {
+//     favourites: [],
+// };
 
 export const AppContext = createContext();
 
 // wrapping our app and providing dataLayer to all componets
-export const AppProvider = ({ reducer, initialState, children }) => {
+export const AppProvider = ({ children }) => {
+    // const [state, dispatch] = useReducer(AppReducer, initialState)
     const [loading, setLoading] = useState(false);
     const [searchTerm, setSearchTerm] = useState("A");
     const [courses, setCourses] = useState([]);
     const [unis, setUnis] = useState([]);
-    // const [uniKey, setUniKey] = useState('')
+    // const [unikey, setUnikey] = React.useState('')
+
 
 
 
@@ -41,7 +51,7 @@ export const AppProvider = ({ reducer, initialState, children }) => {
                         color: color,
                         text_color: text_color,
                     }
-                })
+                }, )
                 setUnis(newUnis)
             } else {
                 setUnis([])
@@ -55,9 +65,9 @@ export const AppProvider = ({ reducer, initialState, children }) => {
 
     useEffect(() => {
       fetchUnis()
-    }, [searchTerm])
+    }, [])
 
-    const fetchCourses = async () => {
+    const fetchCourses = useCallback(async () => {
         setLoading(true)
         try {
             const response = await fetch(`${url}/courses?search=${searchTerm}&limit=10`)
@@ -65,13 +75,12 @@ export const AppProvider = ({ reducer, initialState, children }) => {
             const courses = data;
             if (courses) {
                 const newCourses = courses.map((item)=>{
-                    const {title,requirements,id,link, owner_id, owner} = item;
+                    const {title,requirements,id,link, owner} = item;
                     return {
                         title: title,
                         requirements: requirements,
                         course_id: id,
                         link: link,
-                        owner: owner_id,
                         owner: owner
                     }
                 })
@@ -84,13 +93,21 @@ export const AppProvider = ({ reducer, initialState, children }) => {
             console.log(error)
             setLoading(false) 
         }
-    }
+    }, [searchTerm])
 
     useEffect(() => {
       fetchCourses()
-    }, [searchTerm])
+    }, [searchTerm, fetchCourses])
+
+    
 
 
+    // const addCourseToFavourites = (owner) => {
+    //     dispatch({
+    //             type: "ADD_TO_FAVOURITES", payload: 
+    //             owner
+    //             })
+    //         }
      
     
 
@@ -102,6 +119,11 @@ export const AppProvider = ({ reducer, initialState, children }) => {
         courses,
         unis,
         setSearchTerm,
+        // coursesByOwner,
+        // setUnikey,
+
+        // favourites: state.favourites,
+        // addCourseToFavourites,
         }}
         >
         {children}
