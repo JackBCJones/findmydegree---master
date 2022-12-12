@@ -30,8 +30,8 @@ const Uni = () => {
             // console.log(data)
             if (data){
                 setLoading(false)
-                const { name, img } = data;
-                const newUni = { name, img}
+                const {id, name, img } = data;
+                const newUni = {id, name, img}
                 setUni(newUni)
                 // console.log(newUni)
             } else {
@@ -52,7 +52,7 @@ const Uni = () => {
     if(!uni){
       return <h2>Uni to display unavailible</h2>
     }
-    const {name, img} = uni
+    const {name, img, id} = uni
     return (
       <div className='container'>
         <div className='unipage-header'>
@@ -98,7 +98,7 @@ const Uni = () => {
         </div>
           <div className='course-container'>
             {courses?.map((item) => {
-              return item.owner.id = uni_id? <CourseCard key={item.course_id} {...item}/> : null
+              return item.owner.id === id ? <CourseCard key={item.course_id} {...item}/> : null
             })} 
           </div>
       </div>

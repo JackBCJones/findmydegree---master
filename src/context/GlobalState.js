@@ -22,6 +22,7 @@ export const AppProvider = ({ children }) => {
     const [searchTerm, setSearchTerm] = useState("A");
     const [courses, setCourses] = useState([]);
     const [unis, setUnis] = useState([]);
+    const [favourites, setFavourites] = useState([]);
     // const [unikey, setUnikey] = React.useState('')
 
 
@@ -99,17 +100,6 @@ export const AppProvider = ({ children }) => {
       fetchCourses()
     }, [searchTerm, fetchCourses])
 
-    
-
-
-    // const addCourseToFavourites = (owner) => {
-    //     dispatch({
-    //             type: "ADD_TO_FAVOURITES", payload: 
-    //             owner
-    //             })
-    //         }
-     
-    
 
 
     return (
@@ -119,6 +109,9 @@ export const AppProvider = ({ children }) => {
         courses,
         unis,
         setSearchTerm,
+        favourites,
+        setFavourites,
+        searchTerm
         // coursesByOwner,
         // setUnikey,
 

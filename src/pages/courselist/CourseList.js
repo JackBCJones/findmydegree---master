@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import CourseCard from '../../components/courses/CourseCard'
 import "./CourseList.css";
 import { useGlobalContext } from '../../context/GlobalState.js'
@@ -7,7 +7,9 @@ import SeachForm from '../../components/SeachForm.js';
 
 const CourseList = () => {
 
-  const {courses, loading}  = useGlobalContext();
+  const {courses, favourites, setFavourites}  = useGlobalContext();
+
+  
 
 
   return (
@@ -16,8 +18,8 @@ const CourseList = () => {
           <SeachForm />
         </div>
         <div className='course-container'>
-          {courses.map((item) => {
-            return <CourseCard key={item.course_id} {...item}/>
+          {courses?.map((course) => {
+            return <CourseCard key={course.course_id} {...course} />
           })} 
         </div>
       </section>

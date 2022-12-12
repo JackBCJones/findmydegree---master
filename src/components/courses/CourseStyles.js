@@ -1,6 +1,6 @@
 import style from 'styled-components';
 
-export const A = style.a `
+export const B = style.div `
     background-color: ${(props) => props.color};
 `;
 

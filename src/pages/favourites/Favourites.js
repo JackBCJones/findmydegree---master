@@ -1,30 +1,71 @@
-import React from 'react'
+import React, {useCallback, useState, useEffect} from 'react'
 import { useGlobalContext } from '../../context/GlobalState'
-import FavouriteCourse from '../../components/favouritedCourses/FavouriteCourse';
+import CourseCard from '../../components/courses/CourseCard'
+// import SeachForm from '../../components/SeachForm'
+// import FavouriteCourse from '../../components/favouritedCourses/FavouriteCourse';
 import './Favourites.css'
 
 const Favourites = () => {
-    const [{ favourites }] = useGlobalContext();
+  const {favourites, setFavourites}  = useGlobalContext();
+  const [favCourses, setFavCourses] = useState([]);
+  const url = 'http://localhost:8000'
+  console.log(favourites)
 
+  // const favr = favourites.map((i))
 
+  async function fetchFavCourses(favId) {
+    // setLoading(true)
+    try {
+      // console.log(favourites)
+        const response = await fetch(`${url}/courses/${favId}`)
+        const data = await response.json();
+        favCourses.push(data);
+        if (favCourses) {
+            const newCourses = favCourses?.map((item)=>{
+                const {title,requirements,id,link, owner} = item;
+                return {
+                    title: title,
+                    requirements: requirements,
+                    course_id: id,
+                    link: link,
+                    owner: owner
+                }
+            })
+            setFavCourses(newCourses)
+        } else {
+          setFavCourses([])
+        }
+        // setLoading(false)
+    } catch (error) {
+        console.log(error)
+        // setLoading(false) 
+    }
+  }
+
+  // for (let i=0; i <favourites.length; i++) {
+  //   let favId = favourites[i]
+  //     fetchFavCourses(favId)
+  // }
+ 
+
+  if (favourites.length < 1) {
+    return <h2>you have no favourites saved</h2>
+  } else {
       return (
         <div className='page__container'>
         <div className='favourites__counter'>
           Total Favourites Saved: {favourites.length}
         </div>
-          <section className='favourites__page__container'>
-            {favourites.map(item => (
-              <FavouriteCourse 
-              title={item.title}
-              url={item.link}
-              // nick={item.nick}
-              // text={item.text}
-              // color={item.color}
-              />
-            ))}
-          </section>
+        <section >
+        <div className='course-container'>
+          {favCourses?.map((favCourse) => {
+            return <CourseCard key={favCourse.id} {...favCourse} />
+          })} 
+        </div>
+      </section>
         </div>
         )
+  }
       }
 
 export default Favourites

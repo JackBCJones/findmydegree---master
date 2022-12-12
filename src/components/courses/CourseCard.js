@@ -1,31 +1,50 @@
-import { A, Title, Text } from '../../components/courses/CourseStyles';
+import { B, Title, Text } from '../../components/courses/CourseStyles';
 import "./CourseCard.css"
 import React from 'react'
 // import { Link } from 'react-router-dom'
-// import { AppContext } from '../../context/GlobalState';
+import { useGlobalContext } from '../../context/GlobalState.js'
 
-
-
-const CourseCard = ({ title, requirements, link, course_id, owner }) => {
+const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
   // const { addCourseToFavourites } = useContext(AppContext)
+  // const FavouriteComponent = props.FavouriteComponent
+  const {favourites, setFavourites}  = useGlobalContext();
 
+  const addFavouriteCourse = (courseId) => {
+    if (favourites.includes(courseId)) {
+      return alert("already in favs")
+    } else {
+      const newFavouriteList = [...favourites, courseId];
+      setFavourites(newFavouriteList);
+    }
+      
+    // setSearchTerm('courseId');
+    
+    // setFavourites(["a","b"]);
+    
+    // const myTimeout = setTimeout(funcX, 2000);
+    // function funcX() {
+    // console.log(favourites);
+    // }
+    // console.log(searchTerm);
+
+    // console.log("added to favs")
+    // console.log(favourites)
+  }
  
     return (
-      <div className='card__container'>
             <div className='courses-container'>
-              <A color={owner.color} key={course_id} className='course'>
+              <B color={owner.color} key={course_id} className='course'>
                 <Title text={owner.text_color}>{title}</Title>
                 <Text text={owner.text_color}>{owner.nickname}</Text>
                 <Text text={owner.text_color}>{requirements}</Text>
-                  <button target='_blank' href={link} rel="noreferrer" className='btn'>
-                    <Text text={owner.text_color}>details</Text>
-                  </button>
-                  <div className='btn-container'>
-                    {/* <button className='btn' onClick={() => addCourseToFavourites(owner)}>Add to Favourites</button> */}
-                  </div>
-              </A>
+                <a target='_blank' href={link} rel="noreferrer" className='btn'>details</a>
+                {course_id}
+                <button className='btn btn-container' onClick={() => addFavouriteCourse(course_id)}>
+                {/* props.course */}
+                   Add to Favourites
+                </button>
+              </B>
             </div>
-    </div> 
     )
     
 

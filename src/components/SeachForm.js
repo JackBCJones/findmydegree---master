@@ -3,7 +3,7 @@ import { useGlobalContext } from '../context/GlobalState'
 
 
 export const SeachForm = () => {
-  const { setSearchTerm } = useGlobalContext()
+  const { setSearchTerm, searchTerm, favourites, setFavourites } = useGlobalContext()
   const searchValue = React.useRef('');
 
   React.useEffect(() => {
@@ -11,7 +11,9 @@ export const SeachForm = () => {
   }, [])
 
   const searchCourse = () => {
-    setSearchTerm(searchValue.current.value)
+    setSearchTerm(searchValue.current.value);
+    // setFavourites(["a","b"]);
+    // console.log(favourites);
   }
   const handleSubmit = (e) => {
     e.preventDefault()

@@ -1,5 +1,5 @@
 import React from 'react'
-import { A, Title, Text } from '../../components/courses/CourseStyles';
+import { B, Title, Text } from '../../components/courses/CourseStyles';
 import { useGlobalContext } from '../../context/GlobalState';
 import './FavouriteCourse.css'
 
@@ -19,16 +19,16 @@ const FavouriteCourse = ({link, title, requirements, owner, id }) => {
     return (
         <>
           <div className='favourite__card__container'>
-            <A color={owner.color} key={owner.nickname} className='favourite__course'>
+            <B color={owner.color} key={owner.nickname} className='favourite__course'>
               <Title text={owner.text_color}>{title}</Title>
               <Text text={owner.text_color}>{owner.nickname}</Text>
                 <a target='_blank' href={link} rel="noreferrer">
-                  <Text text={owner.text_color}>click here to learn more</Text>
+                  click here to learn more
                 </a>
                 <div className='favourite__btn__container'>
                   <button className='favourite__btn' onClick={removeFromFavourites}>Remove From Favourites</button>
                 </div>
-            </A>
+            </B>
           </div>
         </>
         )
