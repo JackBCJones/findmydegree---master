@@ -71,7 +71,7 @@ export const AppProvider = ({ children }) => {
     const fetchCourses = useCallback(async () => {
         setLoading(true)
         try {
-            const response = await fetch(`${url}/courses?search=${searchTerm}&limit=10`)
+            const response = await fetch(`${url}/courses?search=${searchTerm}&limit=100`)
             const data = await response.json();
             const courses = data;
             if (courses) {

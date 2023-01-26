@@ -1,6 +1,6 @@
 import {Link, useParams } from 'react-router-dom';
 import './uni.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { motion } from 'framer-motion';
 import CourseCard from '../../components/courses/CourseCard';
 import Loading from '../../components/loading/Loading';
@@ -8,14 +8,18 @@ import { useGlobalContext } from '../../context/GlobalState';
 import SeachForm from '../../components/SeachForm';
 
 
+
+
 const url = `http://localhost:8000/unis`
+const url2 = `http://localhost:8000/courses`
 
 
 const Uni = () => {
     const {uni_id} = useParams();
     const [loading, setLoading] = React.useState(false)
     const [uni, setUni] = React.useState(null)
-    const {courses} = useGlobalContext()
+    const {searchTerm} = useGlobalContext()
+    const [courses, setCourses] = useState([])
 
 
 
@@ -29,11 +33,12 @@ const Uni = () => {
             const data = await response.json()
             // console.log(data)
             if (data){
+                // console.log(data)
                 setLoading(false)
                 const {id, name, img } = data;
                 const newUni = {id, name, img}
                 setUni(newUni)
-                // console.log(newUni)
+                
             } else {
                 setUni(null)
             }
@@ -46,13 +51,65 @@ const Uni = () => {
       getUni()
     }, [uni_id])
 
+    // ------------- Getting the courses via the owner ID ------------
+
+    
+    useEffect(() => {
+      let timeoutId = null;
+      // setLoading(true)
+      async function fetchCoursesByOwner() {
+      try {
+          
+          const response = await fetch(`${url2}/owner_id/${uni_id}?search=${searchTerm}&limit=10`)
+          const data = await response.json();
+          const courses = data;
+          if (courses) {
+              const newCourses = courses.map((item)=>{
+                  const {title,requirements,id,link, owner} = item;
+                  return {
+                      title: title,
+                      requirements: requirements,
+                      course_id: id,
+                      link: link,
+                      owner: owner
+                  }
+              })
+              setCourses(newCourses)
+              // console.log(newCourses)
+          } else {
+              setCourses([])
+          }
+          // setLoading(false)
+      } catch (error) {
+          console.log(error)
+          // setLoading(false) 
+      }
+    };
+    if (searchTerm) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(fetchCoursesByOwner, 500);
+    }
+    return () => clearTimeout(timeoutId);
+    
+    // fetchCoursesByOwner()
+  }, [uni_id, searchTerm]);
+
+  // useEffect(() => {
+  //   fetchCoursesByOwner()
+  // }, [fetchCoursesByOwner, uni_id])
+
+  // console.log(searchTerm)
+  // --------------------
+
     if(loading){
       return <Loading/>
     }
     if(!uni){
       return <h2>Uni to display unavailible</h2>
     }
-    const {name, img, id} = uni
+    const {name, img} = uni
+    // const filteredData = courses.filter(item => item.owner.id === id);
+    // console.log(courses)
     return (
       <div className='container'>
         <div className='unipage-header'>
@@ -98,7 +155,7 @@ const Uni = () => {
         </div>
           <div className='course-container'>
             {courses?.map((item) => {
-              return item.owner.id === id ? <CourseCard key={item.course_id} {...item}/> : null
+              return <CourseCard key={item.course_id} {...item}/> 
             })} 
           </div>
       </div>

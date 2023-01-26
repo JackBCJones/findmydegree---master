@@ -37,7 +37,7 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
                 <Title text={owner.text_color}>{title}</Title>
                 <Text text={owner.text_color}>{owner.nickname}</Text>
                 <Text text={owner.text_color}>{requirements}</Text>
-                <a target='_blank' href={link} rel="noreferrer" className='btn'>details</a>
+                <a target='_blank' href={link} rel="noreferrer" className='btn'>Details</a>
                 {course_id}
                 <button className='btn btn-container' onClick={() => addFavouriteCourse(course_id)}>
                 {/* props.course */}

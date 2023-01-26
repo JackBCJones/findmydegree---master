@@ -58,6 +58,7 @@ Variables
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: solid red !important;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
