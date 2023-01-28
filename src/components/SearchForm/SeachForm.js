@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useGlobalContext } from '../context/GlobalState'
+import { useGlobalContext } from '../../context/GlobalState'
+import './SearchForm.scss'
 
 
 export const SeachForm = () => {
@@ -19,13 +20,10 @@ export const SeachForm = () => {
     e.preventDefault()
   }
   return (
-    <section className='search'>
-      <form className='search-form' onSubmit={handleSubmit}>
-        <div className='form-control'>
-          <label htmlFor='name'>search courses
-          </label>
-          <input type='text' id='name' ref={searchValue} onChange={searchCourse}></input>
-        </div>
+    <section className='search_container'>
+      <form className='search_form' onSubmit={handleSubmit}>
+          <input className='search_input' placeholder='Search' type='text' name='freeText' id='freeText' ref={searchValue} onChange={searchCourse}></input>
+          <button className='search_button'>Find Courses</button>
       </form>
     </section>
   )

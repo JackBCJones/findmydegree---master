@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import CourseCard from '../../components/courses/CourseCard';
 import Loading from '../../components/loading/Loading';
 import { useGlobalContext } from '../../context/GlobalState';
-import SeachForm from '../../components/SeachForm';
+import SeachForm from '../../components/SearchForm/SeachForm.js';
 
 
 

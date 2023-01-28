@@ -2,7 +2,7 @@ import React from 'react'
 import CourseCard from '../../components/courses/CourseCard'
 import "./CourseList.css";
 import { useGlobalContext } from '../../context/GlobalState.js'
-import SeachForm from '../../components/SeachForm.js';
+import SeachForm from '../../components/SearchForm/SeachForm.js';
 
 
 const CourseList = () => {

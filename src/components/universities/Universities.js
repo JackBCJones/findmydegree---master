@@ -1,7 +1,7 @@
 import React from 'react';
 import './universities.css';
 import UniCard from './UniCard';
-import Loading from '/Users/jckbcjones/Documents/code_projects/findmydegree - master/src/components/loading/Loading';
+import Loading from '../loading/Loading'
 import { useGlobalContext } from '../../context/GlobalState';
 
 const Universities = () => {

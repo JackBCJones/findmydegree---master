@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.css';
+import './header.scss';
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
 
@@ -8,19 +8,22 @@ const Header = () => {
 
   return (
     <header>
-      <motion.div 
-      className='title'
-      whileInView={{x: [-100, 0], opacity: [0, 1]}}
-      transition={{duration: 1}}
-      >
-        <h3>Welcome to</h3>
-        <h1>FIND MY DEGREE</h1>
-        <h4 className='header-right'>- Get Information Quickly -</h4>
-      </motion.div>
-      <motion.div 
+      <div 
+      className='title-container'
+      // whileInView={{x: [-100, 0], opacity: [0, 1]}}
+      // transition={{duration: 1}}
+      > 
+        {/* <h3>Welcome to</h3> */}
+        <h1 className='title'>find universities <br/> & courses <br/>throughout<br/> south africa</h1>
+        {/* <h4 className='header-right'>- Get Information Quickly -</h4> */}
+      </div>
+      <div className='title2-container'>
+        <h2 className='title2'>The number 1 place to find all the information you need </h2>
+      </div>
+      {/* <div 
       className="set-up"
-      whileInView={{y: [100, 0], opacity: [0, 1]}}
-      transition={{duration: 1}}
+      // whileInView={{y: [100, 0], opacity: [0, 1]}}
+      // transition={{duration: 1}}
       >
         <h2>How To use Find My Degree</h2>
         <h4>
@@ -60,7 +63,7 @@ const Header = () => {
             
           
          </div>
-      </motion.div>
+      </div> */}
     </header>
     
   )

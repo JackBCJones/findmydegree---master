@@ -41,14 +41,14 @@ const Nav = () => {
             })}
           </ul>
         </div>
-        <ul className='social-icons'>
+        {/* <ul className='social-icons'>
             {socials.map((social) => {
               const {id, url, icon} = social;
               return <li key={id}>
                 <Link to={url}>{icon}</Link>
               </li>
             })}
-        </ul>
+        </ul> */}
       </div>
     </nav>
   )
