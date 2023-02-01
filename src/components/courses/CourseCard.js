@@ -1,6 +1,7 @@
 import { B, Title, Text } from '../../components/courses/CourseStyles';
-import "./CourseCard.css"
-import React from 'react'
+import "./CourseCard.scss"
+import React, {useState} from 'react'
+import {BsFillHeartFill} from 'react-icons/bs'
 // import { Link } from 'react-router-dom'
 import { useGlobalContext } from '../../context/GlobalState.js'
 
@@ -8,14 +9,19 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
   // const { addCourseToFavourites } = useContext(AppContext)
   // const FavouriteComponent = props.FavouriteComponent
   const {favourites, setFavourites}  = useGlobalContext();
+  const [isOpen, setIsOpen] = useState(false)
 
   const addFavouriteCourse = (courseId) => {
     if (favourites.includes(courseId)) {
-      return alert("already in favs")
-    } else {
+      const newFavouriteList = [...favourites.filter(item => item !== courseId)];
+      setFavourites(newFavouriteList);
+     }
+       else {
       const newFavouriteList = [...favourites, courseId];
       setFavourites(newFavouriteList);
+      
     }
+
       
     // setSearchTerm('courseId');
     
@@ -32,17 +38,33 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
   }
  
     return (
-            <div className='courses-container'>
-              <B color={owner.color} key={course_id} className='course'>
-                <Title text={owner.text_color}>{title}</Title>
-                <Text text={owner.text_color}>{owner.nickname}</Text>
-                <Text text={owner.text_color}>{requirements}</Text>
-                <a target='_blank' href={link} rel="noreferrer" className='btn'>Details</a>
+            <div className='course_container'>
+              <B color={owner.color} key={course_id} className='course_card'>
+                <Title className='course_title' text={owner.text_color}>{title}</Title>
+                <Text className='course_nickname' text={owner.text_color}>{owner.nickname}</Text>
                 {course_id}
-                <button className='btn btn-container' onClick={() => addFavouriteCourse(course_id)}>
-                {/* props.course */}
-                   Add to Favourites
-                </button>
+                <div className='course_container_favourites'>
+                  <button 
+                    className='course_button_favourites' onClick={() => addFavouriteCourse(course_id)}>
+                    <BsFillHeartFill style={{color: favourites.includes(course_id) ? "pink" : "var(--clr-primary-3)"}}/>
+                  </button>
+                </div>
+                <div className='course_container_details'>
+                  <button className='course_button_details' onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen === false ? <p>show more</p> : <p>show less</p>} 
+                  </button>
+                </div>
+                {isOpen && (
+                <div>
+                <Text text={owner.text_color}>Requirements: {requirements}</Text>
+                <a className='course_link' target='_blank' href={link} rel="noreferrer">{link}</a>
+                </div>
+                )}
+                
+                
+                
+                
+                
               </B>
             </div>
     )
@@ -52,6 +74,8 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
 }
 
 export default CourseCard;
+
+// 
 
 // {searchedCourse.map((course) => {
 //   const { title, title2, url, requirements, req, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;

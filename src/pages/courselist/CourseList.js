@@ -1,23 +1,27 @@
 import React from 'react'
 import CourseCard from '../../components/courses/CourseCard'
-import "./CourseList.css";
+import "./CourseList.scss";
 import { useGlobalContext } from '../../context/GlobalState.js'
 import SeachForm from '../../components/SearchForm/SeachForm.js';
+import Filter from '../../components/Filter/Filter';
 
 
 const CourseList = () => {
 
-  const {courses, favourites, setFavourites}  = useGlobalContext();
+  const {courses}  = useGlobalContext();
 
   
 
 
   return (
       <section >
-        <div className='search-container'>
+        <div className='search_container'>
           <SeachForm />
         </div>
-        <div className='course-container'>
+        <div>
+          <Filter/>
+        </div>
+        <div className='course_list_container'>
           {courses?.map((course) => {
             return <CourseCard key={course.course_id} {...course} />
           })} 

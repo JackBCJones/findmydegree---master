@@ -4,7 +4,7 @@ export const B = style.div `
     background-color: ${(props) => props.color};
 `;
 
-export const Title = style.h4 `
+export const Title = style.h3 `
     color: ${(props) => props.text}
 `;
 

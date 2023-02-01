@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useGlobalContext } from '../../context/GlobalState'
 import './SearchForm.scss'
+import { Link } from 'react-router-dom'
 
 
 export const SeachForm = () => {
-  const { setSearchTerm, searchTerm, favourites, setFavourites } = useGlobalContext()
+  const { setSearchTerm } = useGlobalContext()
   const searchValue = React.useRef('');
 
   React.useEffect(() => {
@@ -13,8 +14,6 @@ export const SeachForm = () => {
 
   const searchCourse = () => {
     setSearchTerm(searchValue.current.value);
-    // setFavourites(["a","b"]);
-    // console.log(favourites);
   }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -23,7 +22,7 @@ export const SeachForm = () => {
     <section className='search_container'>
       <form className='search_form' onSubmit={handleSubmit}>
           <input className='search_input' placeholder='Search' type='text' name='freeText' id='freeText' ref={searchValue} onChange={searchCourse}></input>
-          <button className='search_button'>Find Courses</button>
+          <Link to="/courses"><button className='search_button'>Find Courses</button></Link>
       </form>
     </section>
   )

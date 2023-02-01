@@ -6,12 +6,15 @@ import CourseCard from '../../components/courses/CourseCard'
 import './Favourites.css'
 
 const Favourites = () => {
-  const {favourites, setFavourites}  = useGlobalContext();
+  const {favourites}  = useGlobalContext();
   const [favCourses, setFavCourses] = useState([]);
   const url = 'http://localhost:8000'
-  console.log(favourites)
-
+  // console.log(favourites)
+  const courses = []
   // const favr = favourites.map((i))
+
+
+  useEffect(() => {
 
   async function fetchFavCourses(favId) {
     // setLoading(true)
@@ -19,9 +22,9 @@ const Favourites = () => {
       // console.log(favourites)
         const response = await fetch(`${url}/courses/${favId}`)
         const data = await response.json();
-        favCourses.push(data);
-        if (favCourses) {
-            const newCourses = favCourses?.map((item)=>{
+        courses.push(data)
+        if (courses) {
+            const newCourses = courses.map((item)=>{
                 const {title,requirements,id,link, owner} = item;
                 return {
                     title: title,
@@ -40,8 +43,21 @@ const Favourites = () => {
         console.log(error)
         // setLoading(false) 
     }
-  }
+  };
+  if (favourites.length > 0){
+    for (let i=0; i<favourites.length; i++){
+      fetchFavCourses(favourites[i])
+    }
+      
+    }
 
+}, [favourites])
+
+    
+    
+    
+  
+  
   // for (let i=0; i <favourites.length; i++) {
   //   let favId = favourites[i]
   //     fetchFavCourses(favId)
@@ -59,7 +75,7 @@ const Favourites = () => {
         <section >
         <div className='course-container'>
           {favCourses?.map((favCourse) => {
-            return <CourseCard key={favCourse.id} {...favCourse} />
+            return <CourseCard key={favCourse.course_id} {...favCourse} />
           })} 
         </div>
       </section>

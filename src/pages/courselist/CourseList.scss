@@ -1,0 +1,8 @@
+.course_list{
+    display: grid;
+    grid-template-columns: 1fr;
+    &_container{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
