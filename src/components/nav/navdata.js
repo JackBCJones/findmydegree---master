@@ -10,20 +10,15 @@ export const links = [
         text: 'Home',
     },
     {
-        id: 2, 
-        url: 'universities',
-        text: 'Universities',
-    },
-    {
         id: 3, 
         url: '/courses',
         text: 'Courses',
     },
-    {
-        id: 4, 
-        url: '/international',
-        text: 'International Students',
-    },
+    // {
+    //     id: 4, 
+    //     url: '/international',
+    //     text: 'International Students',
+    // },
     {
         id: 5, 
         url: '/favourites',

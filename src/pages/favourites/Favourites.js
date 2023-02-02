@@ -69,9 +69,9 @@ const Favourites = () => {
   } else {
       return (
         <div className='page__container'>
-        <div className='favourites__counter'>
-          Total Favourites Saved: {favourites.length}
-        </div>
+        {/* <div className='favourites__counter'>
+          You have {favourites.length} favourite courses saved
+        </div> */}
         <section >
         <div className='course-container'>
           {favCourses?.map((favCourse) => {

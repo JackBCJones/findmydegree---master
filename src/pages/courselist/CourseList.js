@@ -1,17 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import CourseCard from '../../components/courses/CourseCard'
 import "./CourseList.scss";
 import { useGlobalContext } from '../../context/GlobalState.js'
 import SeachForm from '../../components/SearchForm/SeachForm.js';
 import Filter from '../../components/Filter/Filter';
+import Pagination from '../../components/Pagination/Pagination';
 
 
 const CourseList = () => {
 
   const {courses}  = useGlobalContext();
+  const [currentPage, setCurrentPage] = useState(1)
+  const [coursesPerPage] = useState(50)
+
+  // get current posts for creating a limit of 50 posts per page
+  const indexOfLastCourse = currentPage * coursesPerPage
+  const inderOfFirstCourse = indexOfLastCourse - coursesPerPage
+  const currentCourses = courses.slice(inderOfFirstCourse, indexOfLastCourse)
 
   
-
+  // change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
       <section >
@@ -22,9 +31,16 @@ const CourseList = () => {
           <Filter/>
         </div>
         <div className='course_list_container'>
-          {courses?.map((course) => {
+          {currentCourses?.map((course) => {
             return <CourseCard key={course.course_id} {...course} />
           })} 
+        </div>
+        <div className='pagination_container'>
+          <Pagination 
+          coursesPerPage={coursesPerPage} 
+          totalCourses={courses.length} 
+          paginate={paginate}
+          currentPage={currentPage}/>
         </div>
       </section>
 

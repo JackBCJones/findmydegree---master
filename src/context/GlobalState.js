@@ -19,7 +19,7 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
     // const [state, dispatch] = useReducer(AppReducer, initialState)
     const [loading, setLoading] = useState(false);
-    const [searchTerm, setSearchTerm] = useState("A");
+    const [searchTerm, setSearchTerm] = useState("");
     const [courses, setCourses] = useState([]);
     const [unis, setUnis] = useState([]);
     const [favourites, setFavourites] = useState([]);
@@ -71,7 +71,7 @@ export const AppProvider = ({ children }) => {
     const fetchCourses = useCallback(async () => {
         setLoading(true)
         try {
-            const response = await fetch(`${url}/courses?search=${searchTerm}&limit=100`)
+            const response = await fetch(`${url}/courses?search=${searchTerm}&limit=10000`)
             const data = await response.json();
             const courses = data;
             if (courses) {

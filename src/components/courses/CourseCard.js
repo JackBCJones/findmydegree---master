@@ -42,7 +42,6 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
               <B color={owner.color} key={course_id} className='course_card'>
                 <Title className='course_title' text={owner.text_color}>{title}</Title>
                 <Text className='course_nickname' text={owner.text_color}>{owner.nickname}</Text>
-                {course_id}
                 <div className='course_container_favourites'>
                   <button 
                     className='course_button_favourites' onClick={() => addFavouriteCourse(course_id)}>

@@ -1,0 +1,29 @@
+.pagination{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    &_item{
+
+        padding: 0.25rem;
+
+
+
+    }
+
+    &_link{
+        padding: 1rem;
+        background-color: var(--clr-primary-3);
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+
+        &:hover {
+            background-color: var(--clr-primary-5);
+        }
+
+    }
+}
