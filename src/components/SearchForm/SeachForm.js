@@ -19,12 +19,12 @@ export const SeachForm = () => {
     e.preventDefault()
   }
   return (
-    <section className='search_container'>
-      <form className='search_form' onSubmit={handleSubmit}>
+    // <section className=''>
+      <form className='search_container' onSubmit={handleSubmit}>
           <input className='search_input' placeholder='Search' type='text' name='freeText' id='freeText' ref={searchValue} onChange={searchCourse}></input>
           <Link to="/courses"><button className='search_button'>Find Courses</button></Link>
       </form>
-    </section>
+    // </section>
   )
 }
 

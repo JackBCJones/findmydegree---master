@@ -21,20 +21,6 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
       setFavourites(newFavouriteList);
       
     }
-
-      
-    // setSearchTerm('courseId');
-    
-    // setFavourites(["a","b"]);
-    
-    // const myTimeout = setTimeout(funcX, 2000);
-    // function funcX() {
-    // console.log(favourites);
-    // }
-    // console.log(searchTerm);
-
-    // console.log("added to favs")
-    // console.log(favourites)
   }
  
     return (

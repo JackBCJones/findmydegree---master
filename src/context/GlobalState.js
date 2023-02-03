@@ -1,7 +1,4 @@
 import React, {createContext, useCallback, useContext, useState, useEffect} from 'react'
-// import { useCallback } from 'react';
-// import CourseCard from '../components/courses/CourseCard';
-// import AppReducer from './AppReducer';
 
 
 
@@ -9,33 +6,30 @@ import React, {createContext, useCallback, useContext, useState, useEffect} from
 
 
 const url = 'http://localhost:8000'
-// const initialState = {
-//     favourites: [],
-// };
 
 export const AppContext = createContext();
 
 // wrapping our app and providing dataLayer to all componets
 export const AppProvider = ({ children }) => {
-    // const [state, dispatch] = useReducer(AppReducer, initialState)
+
     const [loading, setLoading] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [courses, setCourses] = useState([]);
     const [unis, setUnis] = useState([]);
     const [favourites, setFavourites] = useState([]);
-    // const [unikey, setUnikey] = React.useState('')
+    
 
 
 
-
-    const fetchUnis = async () => {
+    
+    const fetchUnis = useCallback(async () => {
         setLoading(true)
         try {
             const response = await fetch(`${url}/unis/`)
             const data = await response.json();
-            const unis = data;
-            if (unis) {
-                const newUnis = unis.map((item)=>{
+            const uni_data = data;
+            if (uni_data) {
+                const newUnis = uni_data.map((item)=>{
                     const {
                         id,
                         name,
@@ -62,20 +56,20 @@ export const AppProvider = ({ children }) => {
             console.log(error)
             setLoading(false) 
         }
-    }
+    }, [])
 
     useEffect(() => {
-      fetchUnis()
-    }, [])
+    fetchUnis()
+    }, [unis, fetchUnis])
 
     const fetchCourses = useCallback(async () => {
         setLoading(true)
         try {
             const response = await fetch(`${url}/courses?search=${searchTerm}&limit=10000`)
             const data = await response.json();
-            const courses = data;
-            if (courses) {
-                const newCourses = courses.map((item)=>{
+            const courses_data = data;
+            if (courses_data) {
+                const newCourses = courses_data.map((item)=>{
                     const {title,requirements,id,link, owner} = item;
                     return {
                         title: title,
@@ -111,12 +105,9 @@ export const AppProvider = ({ children }) => {
         setSearchTerm,
         favourites,
         setFavourites,
-        searchTerm
-        // coursesByOwner,
-        // setUnikey,
-
-        // favourites: state.favourites,
-        // addCourseToFavourites,
+        searchTerm,
+        // filterList,
+        // setFilterList
         }}
         >
         {children}
