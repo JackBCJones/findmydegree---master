@@ -13,7 +13,7 @@ export const SeachForm = () => {
   }, [])
 
   const searchCourse = () => {
-    setSearchTerm(searchValue.current.value);
+    setSearchTerm(searchValue.current.value.toLowerCase());
   }
   const handleSubmit = (e) => {
     e.preventDefault()

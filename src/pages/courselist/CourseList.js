@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
 import CourseCard from '../../components/courses/CourseCard'
 import "./CourseList.scss";
 import { useGlobalContext } from '../../context/GlobalState.js'
@@ -17,10 +17,19 @@ const CourseList = () => {
   const indexOfLastCourse = currentPage * coursesPerPage
   const inderOfFirstCourse = indexOfLastCourse - coursesPerPage
   const currentCourses = courses.slice(inderOfFirstCourse, indexOfLastCourse)
-
   
   // change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  const paginate = useCallback(pageNumber => {
+    setCurrentPage(pageNumber);
+  }, []);
+  
+
+  // const handleFilter = (nick) => {
+  //   console.log(nick)
+  // }
+  
 
   return (
       <section >
@@ -28,7 +37,7 @@ const CourseList = () => {
           <SeachForm />
         </div>
         <div>
-          <Filter/>
+          {/* <Filter filterArray={handleFilter}/> */}
         </div>
         <div className='course_list_container'>
           {currentCourses?.map((course) => {
