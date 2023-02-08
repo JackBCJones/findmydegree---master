@@ -3,7 +3,7 @@ import CourseCard from '../../components/courses/CourseCard'
 import "./CourseList.scss";
 import { useGlobalContext } from '../../context/GlobalState.js'
 import SeachForm from '../../components/SearchForm/SeachForm.js';
-import Filter from '../../components/Filter/Filter';
+// import Filter from '../../components/Filter/Filter';
 import Pagination from '../../components/Pagination/Pagination';
 
 
@@ -37,7 +37,7 @@ const CourseList = () => {
           <SeachForm />
         </div>
         <div>
-          {/* <Filter filterArray={handleFilter}/> */}
+          {/* <Filter /> */}
         </div>
         <div className='course_list_container'>
           {currentCourses?.map((course) => {

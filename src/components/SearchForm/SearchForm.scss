@@ -54,6 +54,10 @@
         color: color(#575756 a(0.8));
         text-transform: uppercase;
         letter-spacing: 1.5px;
+
+        @media screen and (max-width: 900px) {
+          font-size: 14px;
+       }
       }
     }
   
@@ -81,5 +85,6 @@
       @media screen and (max-width: 600px) {
         padding: 0.5rem;
     }
+    
     }
   }

@@ -5,11 +5,25 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
 
+    @media screen and (max-width: 600px) {
+        // padding: 0;
+        width: 400px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+     }
+
     &_item{
 
         padding: 0.25rem;
 
-
+        @media screen and (max-width: 600px) {
+            padding: 5px;
+            flex-wrap: wrap;
+         }
 
     }
 
@@ -26,6 +40,11 @@
             background-color: var(--clr-primary-2) !important;
             box-shadow: var(--dark-shadow);
         }
+
+        @media screen and (max-width: 600px) {
+            display: flex;
+            flex-wrap: wrap;
+         }
 
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.scss';
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion';
+// import { Link } from 'react-router-dom'
+// import { motion } from 'framer-motion';
 
 const Header = () => {
 
@@ -18,7 +18,7 @@ const Header = () => {
         {/* <h4 className='header-right'>- Get Information Quickly -</h4> */}
       </div>
       <div className='title2-container'>
-        <h2 className='title2'>The number 1 place to find all the information you need </h2>
+        <h2 className='title2'>The #1 place to find all the information you need </h2>
       </div>
       {/* <div 
       className="set-up"

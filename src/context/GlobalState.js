@@ -58,9 +58,9 @@ export const AppProvider = ({ children }) => {
         }
     }, [])
 
-    // useEffect(() => {
-    // fetchUnis()
-    // }, [fetchUnis])
+    useEffect(() => {
+    fetchUnis()
+    }, [fetchUnis])
 
     const fetchCourses = useCallback(async () => {
         setLoading(true)

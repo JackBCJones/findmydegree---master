@@ -1,7 +1,7 @@
 import { B, Title, Text } from '../../components/courses/CourseStyles';
 import "./CourseCard.scss"
 import React, {useState} from 'react'
-import {BsFillHeartFill} from 'react-icons/bs'
+import {AiOutlineHeart} from 'react-icons/ai'
 // import { Link } from 'react-router-dom'
 import { useGlobalContext } from '../../context/GlobalState.js'
 
@@ -31,7 +31,7 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
                 <div className='course_container_favourites'>
                   <button 
                     className='course_button_favourites' onClick={() => addFavouriteCourse(course_id)}>
-                    <BsFillHeartFill style={{color: favourites.includes(course_id) ? "pink" : "var(--clr-primary-3)"}}/>
+                    <AiOutlineHeart style={{color: favourites.includes(course_id) ? "pink" : "var(--clr-primary-3)"}}/>
                   </button>
                 </div>
                 <div className='course_container_details'>
@@ -41,8 +41,18 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
                 </div>
                 {isOpen && (
                 <div>
-                <Text text={owner.text_color}>Requirements: {requirements}</Text>
-                <a className='course_link' target='_blank' href={link} rel="noreferrer">{link}</a>
+                <Text className='course_requirements' text={owner.text_color}>Requirements: {requirements}</Text>
+                <a target='_blank' 
+                  href={link} 
+                  rel="noreferrer" 
+                  className='course_link'
+                  >
+                  <Text
+                  text={owner.text_color}
+                  >
+                    Apply & Find Out More -  {link}
+                  </Text>
+                  </a>
                 </div>
                 )}
                 

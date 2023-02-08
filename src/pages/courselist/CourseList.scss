@@ -6,7 +6,9 @@ section{
     .course_list_container{
         padding-left: 5rem;
         padding-right: 5rem;
-
+        @media screen and (max-width: 600px) {
+            padding: 0;
+         }
         
     }
 }
