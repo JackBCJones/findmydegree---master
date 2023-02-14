@@ -3,7 +3,7 @@ import CourseCard from '../../components/courses/CourseCard'
 import "./CourseList.scss";
 import { useGlobalContext } from '../../context/GlobalState.js'
 import SeachForm from '../../components/SearchForm/SeachForm.js';
-// import Filter from '../../components/Filter/Filter';
+import Filter from '../../components/Filter/Filter';
 import Pagination from '../../components/Pagination/Pagination';
 
 
@@ -12,11 +12,23 @@ const CourseList = () => {
   const {courses}  = useGlobalContext();
   const [currentPage, setCurrentPage] = useState(1)
   const [coursesPerPage] = useState(50)
+  const [filterList, setFilterList] = useState('All')
+
+
+  let filtertedCurrentCourses = courses.filter((course) => {
+      if(filterList === "filter - all"){
+      return courses
+    } else if(filterList === course.owner.nickname) {
+      return courses.filter((course) => course.owner.nickname === filterList)
+    }
+  else {
+    return null
+  }})
 
   // get current posts for creating a limit of 50 posts per page
   const indexOfLastCourse = currentPage * coursesPerPage
   const inderOfFirstCourse = indexOfLastCourse - coursesPerPage
-  const currentCourses = courses.slice(inderOfFirstCourse, indexOfLastCourse)
+  const currentCourses = filtertedCurrentCourses.slice(inderOfFirstCourse, indexOfLastCourse)
   
   // change page
   // const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -24,11 +36,11 @@ const CourseList = () => {
   const paginate = useCallback(pageNumber => {
     setCurrentPage(pageNumber);
   }, []);
-  
 
-  // const handleFilter = (nick) => {
-  //   console.log(nick)
-  // }
+
+  const onFilterValueSelected = (filterValue) => {
+    setFilterList(filterValue)
+  }
   
 
   return (
@@ -36,18 +48,19 @@ const CourseList = () => {
         <div className='search_container'>
           <SeachForm />
         </div>
-        <div>
-          {/* <Filter /> */}
+        <div className='filter_container'>
+          <Filter filterValueSelected={onFilterValueSelected} />
         </div>
         <div className='course_list_container'>
           {currentCourses?.map((course) => {
             return <CourseCard key={course.course_id} {...course} />
+              
           })} 
         </div>
         <div className='pagination_container'>
           <Pagination 
           coursesPerPage={coursesPerPage} 
-          totalCourses={courses.length} 
+          totalCourses={filtertedCurrentCourses.length} 
           paginate={paginate}
           currentPage={currentPage}/>
         </div>

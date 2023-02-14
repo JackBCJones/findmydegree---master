@@ -1,5 +1,5 @@
 import React from 'react';
-import './universities.css';
+import './UniCard.scss'
 import UniCard from './UniCard';
 import Loading from '../loading/Loading'
 import { useGlobalContext } from '../../context/GlobalState';
@@ -18,7 +18,7 @@ const Universities = () => {
   }
 
   return (
-      <section className='uni-container'>
+      <section className='uni_container'>
           {unis.map((item) => {
             return <UniCard key={item.uni_id} {...item}/>
           })} 

@@ -1,18 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './universities.css'
+import './UniCard.scss'
 
 const UniCard = ({img, name, uni_id, color, text_color, nickname}) => {
   return (
     <article className='uni'>
-        <div className='img-container'>
+        <div className='uni_img_container'>
             <img src={img} alt='name'></img>
         </div>
-        <div className='uni-footer'>
+        <div className='uni_footer'>
             <h4>{name}</h4>
-            <Link to={`/university/${uni_id}`} className="btn btn-primary btn-details">
-                details
-            </Link>
+
         </div>
     </article>
   )

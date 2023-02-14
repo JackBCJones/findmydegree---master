@@ -8,7 +8,7 @@ const Home = () => {
     <>
     <Header />
     <SearchForm />
-    {/* <Universities /> */}
+    <Universities />
     </>
   )
 }
