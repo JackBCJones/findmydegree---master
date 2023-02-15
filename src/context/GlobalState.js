@@ -12,14 +12,21 @@ export const AppContext = createContext();
 // wrapping our app and providing dataLayer to all componets
 export const AppProvider = ({ children }) => {
 
+    // making sure that on refresh the state is going to be initialized from this instead of an empty array
+
+    const favouritesFromLocalStorage = JSON.parse(localStorage.getItem("saved-favs") || "[]")
+
     const [loading, setLoading] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [courses, setCourses] = useState([]);
     const [unis, setUnis] = useState([]);
-    const [favourites, setFavourites] = useState([]);
+    const [favourites, setFavourites] = useState(favouritesFromLocalStorage);
     
+    // saving favourites to local storage 
 
-
+    useEffect(() => {
+        localStorage.setItem('saved-favs', JSON.stringify(favourites))
+      }, [favourites]);
 
     
     const fetchUnis = useCallback(async () => {
@@ -106,6 +113,7 @@ export const AppProvider = ({ children }) => {
         favourites,
         setFavourites,
         searchTerm,
+        url
         // filterList,
         // setFilterList
         }}

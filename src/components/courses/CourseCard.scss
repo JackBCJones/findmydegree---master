@@ -73,6 +73,8 @@
 
     &_requirements {
         padding-left: 1rem;
+
+        
     }
 
     &_container_details{
@@ -131,7 +133,7 @@
         font-size: 20px;
         border-radius: 50%;
         background-size: 0.5rem;
-        color: var(--clr-primary-3);
+        background-color: #dbdada;
         box-shadow: var(--light-shadow);
         transition: var(--transition);
         margin-top: 30px;
@@ -143,7 +145,7 @@
         &:hover {
             cursor: pointer;
             box-shadow: var(--dark-shadow);
-            background-color: pink;
+            background-color: rgb(216, 159, 168) !important;
            }
 
         &_show_more_container {

@@ -2,12 +2,12 @@ import { B, Title, Text } from '../../components/courses/CourseStyles';
 import "./CourseCard.scss"
 import React, {useState} from 'react'
 import {AiOutlineHeart} from 'react-icons/ai'
-// import { Link } from 'react-router-dom'
+import { FiExternalLink } from 'react-icons/fi';
 import { useGlobalContext } from '../../context/GlobalState.js'
 
-const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
-  // const { addCourseToFavourites } = useContext(AppContext)
-  // const FavouriteComponent = props.FavouriteComponent
+const CourseCard = ({ title, requirements, link, course_id, owner }) => {
+
+
   const {favourites, setFavourites}  = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false)
 
@@ -22,6 +22,8 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
       
     }
   }
+
+  
  
     return (
             <div className='course_container'>
@@ -31,7 +33,7 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
                 <div className='course_container_favourites'>
                   <button 
                     className='course_button_favourites' onClick={() => addFavouriteCourse(course_id)}>
-                    <AiOutlineHeart style={{color: favourites.includes(course_id) ? "pink" : "var(--clr-primary-3)"}}/>
+                    <AiOutlineHeart style={{color: favourites.includes(course_id) ? "rgb(216, 159, 168)" : "var(--clr-primary-1)"}}/>
                   </button>
                 </div>
                 <div className='course_container_details'>
@@ -50,7 +52,7 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
                   <Text
                   text={owner.text_color}
                   >
-                    Apply & Find Out More -  {link}
+                    <span>Apply & Find Out More - </span> {link} <FiExternalLink/>
                   </Text>
                   </a>
                 </div>
@@ -70,77 +72,3 @@ const CourseCard = ({ title, requirements, link, course_id, owner }, props) => {
 
 export default CourseCard;
 
-// 
-
-// {searchedCourse.map((course) => {
-//   const { title, title2, url, requirements, req, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
-  
-
-
-
-/* <div className='card__container'>
-        return (
-          <div>
-            <div className='courses-container'>
-              <A color={color} key={course_id} className='course'>
-                <Title text={text}>{title}</Title>
-                <Text text={text}>{nickname}</Text>
-                <Text text={text}>{requirements}</Text>
-                  <a target='_blank' href={link} rel="noreferrer">
-                    <Text text={text}>click here to learn more</Text>
-                  </a>
-                  <div className='btn-container'>
-                    <button className='btn' onClick={addToFavourites}>Add to Favourites</button>
-                  </div>
-              </A>
-            </div>
-          </div>
-        )
-    </div> */
-
-// // const [searchTerm, setSearchTerm] = useState('ba')
-
-//   //   return (
-//   //       <section>
-//   //         <div className='search-container'>
-//   //           <input type="text" placeholder="There are lots more, Search Here!" onChange={event => {setSearchTerm(event.target.value)}}></input>
-//   //         </div>
-//   //       {unis.map((uni) => {
-//   //         const {courses, color, text} = uni;
-//   //       return (
-//   //         <div className='courses-container'>
-//   //           {courses.filter((val) => {
-//   //               if (searchTerm === '') {
-//   //                 return val
-//   //               } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-//   //                 return val
-//   //               } else {
-//   //                 return null
-//   //               }
-//   //             }).map((course) => {
-//   //             const { title, title2, url, requirements, req, sub1, sub2, sub3, sub4, grade1, grade2, grade3, grade4} = course;
-//   //             return (
-//   //               <A color={color} key={url} className='course'>
-//   //                 <Title text={text}>{title} {title2}</Title>
-//   //                 <Text text={text}>{uni.url}</Text>
-//   //                 <Text text={text}>{requirements}{req}</Text>
-//   //                 <Text text={text}>
-//   //                   {sub1} {grade1} <br/>
-//   //                   {sub2} {grade2} <br/>
-//   //                   {sub3} {grade3} <br/>
-//   //                   {sub4} {grade4} 
-//   //                   </Text>
-//   //                   <a target='_blank' href={url} rel="noreferrer">
-//   //                     <Text text={text}>click here to learn more</Text>
-//   //                   </a>
-//   //                 <button className='btn'>Add to Favourites</button>
-//   //               </A>
-//   //             )
-//   //           })}
-//   //         </div>
-//   //     )
-//   //   })}
-//   //   </section>
-//   //     )
-  
-//   // }

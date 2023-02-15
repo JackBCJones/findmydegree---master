@@ -4,15 +4,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // import components
 import SharedLayout from './components/sharedlayout/SharedLayout';
-import Universities from './components/universities/Universities';
+// import Universities from './components/universities/Universities';
 
 // import pages
 import Home from './pages/home/Home';
-import Uni from './pages/uni/Uni';
+// import Uni from './pages/uni/Uni';
 import CourseList from './pages/courselist/CourseList';
 import Error from './pages/Error';
 import Favourites from './pages/favourites/Favourites';
-import International from './pages/international/International';
+// import International from './pages/international/International';
 import {AppProvider} from './context/GlobalState';
 
 function App() {
@@ -24,9 +24,9 @@ function App() {
             <Route index element={<Home />} />
             <Route path='/courses' element={<CourseList/>}/>
             <Route path='/favourites' element={<Favourites/>}/>
-            <Route path='/universities' element={<Universities />}/>
-            <Route path='/international' element={<International />}/>
-            <Route path='/university/:uni_id' element={<Uni />}/>
+            {/* <Route path='/universities' element={<Universities />}/> */}
+            {/* <Route path='/international' element={<International />}/> */}
+            {/* <Route path='/university/:uni_id' element={<Uni />}/> */}
             <Route path='*' element={<Error />}/>
           </Route>
         </Routes>

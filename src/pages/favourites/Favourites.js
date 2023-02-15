@@ -1,25 +1,22 @@
-import React, {useCallback, useState, useEffect} from 'react'
+import React, { useState, useEffect} from 'react'
 import { useGlobalContext } from '../../context/GlobalState'
 import CourseCard from '../../components/courses/CourseCard'
-// import SeachForm from '../../components/SeachForm'
-// import FavouriteCourse from '../../components/favouritedCourses/FavouriteCourse';
-import './Favourites.css'
+import './Favourites.scss'
+import {BsArrowLeft} from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
 const Favourites = () => {
-  const {favourites}  = useGlobalContext();
+  const {favourites, url}  = useGlobalContext();
   const [favCourses, setFavCourses] = useState([]);
-  const url = 'http://localhost:8000'
-  // console.log(favourites)
   const courses = []
-  // const favr = favourites.map((i))
 
+
+  // fetching favourite courses from state saved id
 
   useEffect(() => {
-
   async function fetchFavCourses(favId) {
     // setLoading(true)
     try {
-      // console.log(favourites)
         const response = await fetch(`${url}/courses/${favId}`)
         const data = await response.json();
         courses.push(data)
@@ -50,38 +47,36 @@ const Favourites = () => {
     }
       
     }
+    
 
 }, [favourites])
 
+    // End of fetching function ////////////
     
-    
-    
-  
-  
-  // for (let i=0; i <favourites.length; i++) {
-  //   let favId = favourites[i]
-  //     fetchFavCourses(favId)
-  // }
- 
-
-  if (favourites.length < 1) {
-    return <h2>you have no favourites saved</h2>
-  } else {
       return (
-        <div className='page__container'>
-        {/* <div className='favourites__counter'>
-          You have {favourites.length} favourite courses saved
-        </div> */}
-        <section >
-        <div className='course-container'>
-          {favCourses?.map((favCourse) => {
-            return <CourseCard key={favCourse.course_id} {...favCourse} />
-          })} 
-        </div>
+        <section className='fav'>
+          <div className='fav_nav_container'>
+            <Link to="/courses"><button> <BsArrowLeft/> <p>Find courses</p></button></Link>
+            <h4>Favourites ({favourites.length})</h4>
+          </div>
+          <h3>Selected courses</h3>
+          {favourites.length < 1? 
+          <div className='fav_empty_container'>
+            <p>Eish bru, it looks like you don't have any favourites saved<br/> you should go get some. <br/> click the heart in the top-right <br/>corner of any course and come back here</p>
+            <Link to="/courses"><button>Find Courses</button></Link>
+          </div>
+           : 
+          <div className='fav_course_container'>
+            {favCourses?.map((favCourse) => {
+              return <CourseCard key={favCourse.course_id} {...favCourse} />
+            })} 
+          </div>}
+          
+          
       </section>
-        </div>
         )
+
+        
   }
-      }
 
 export default Favourites

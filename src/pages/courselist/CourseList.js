@@ -12,16 +12,15 @@ const CourseList = () => {
   const {courses}  = useGlobalContext();
   const [currentPage, setCurrentPage] = useState(1)
   const [coursesPerPage] = useState(50)
-  const [filterList, setFilterList] = useState('All')
+  const [filterList, setFilterList] = useState('filter - all')
 
 
   let filtertedCurrentCourses = courses.filter((course) => {
-      if(filterList === "filter - all"){
-      return courses
-    } else if(filterList === course.owner.nickname) {
+      if(filterList === course.owner.nickname) {
       return courses.filter((course) => course.owner.nickname === filterList)
-    }
-  else {
+    } else if(filterList === "filter - all"){
+      return courses
+     } else {
     return null
   }})
 
