@@ -52,6 +52,7 @@ const Favourites = () => {
 }, [favourites])
 
     // End of fetching function ////////////
+    console.log(favourites)
     
       return (
         <section className='fav'>
