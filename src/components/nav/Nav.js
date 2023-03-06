@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import logo from '../../images/logodark.png';
-import { links, socials } from './navdata'
+import { links } from './navdata'
 import './Nav.css';
 
 const Nav = () => {

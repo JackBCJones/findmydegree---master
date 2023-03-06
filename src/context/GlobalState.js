@@ -5,7 +5,8 @@ import React, {createContext, useCallback, useContext, useState, useEffect} from
 // preparing the dataLayer
 
 
-const url = 'http://localhost:8000'
+const url = process.env.REACT_APP_API_URL
+
 
 export const AppContext = createContext();
 
@@ -112,8 +113,7 @@ export const AppProvider = ({ children }) => {
         setSearchTerm,
         favourites,
         setFavourites,
-        searchTerm,
-        url
+        searchTerm
         // filterList,
         // setFilterList
         }}

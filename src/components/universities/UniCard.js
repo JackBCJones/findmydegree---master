@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './UniCard.scss'
 
 const UniCard = ({img, name, uni_id, color, text_color, nickname}) => {

@@ -6,7 +6,7 @@ import {BsArrowLeft} from 'react-icons/bs'
 import { Link } from 'react-router-dom';
 
 const Favourites = () => {
-  const {favourites, url}  = useGlobalContext();
+  const {favourites}  = useGlobalContext();
   const [favCourses, setFavCourses] = useState([]);
   const courses = []
 
@@ -17,7 +17,7 @@ const Favourites = () => {
   async function fetchFavCourses(favId) {
     // setLoading(true)
     try {
-        const response = await fetch(`${url}/courses/${favId}`)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/courses/${favId}`)
         const data = await response.json();
         courses.push(data)
         if (courses) {
